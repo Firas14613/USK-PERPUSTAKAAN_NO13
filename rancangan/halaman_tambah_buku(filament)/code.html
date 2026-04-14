@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tambah Buku | SMKN 1 Purwokerto Library</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#00164e",
+                        "surface-container-highest": "#e0e3e5",
+                        "secondary-fixed": "#d3e4fe",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#444651",
+                        "secondary-container": "#d0e1fb",
+                        "on-tertiary-fixed": "#341100",
+                        "on-surface": "#191c1e",
+                        "tertiary": "#4b1c00",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "surface-tint": "#4059aa",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-secondary-container": "#54647a",
+                        "secondary": "#505f76",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "inverse-surface": "#2d3133",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-dim": "#d8dadc",
+                        "surface": "#f7f9fb",
+                        "primary-fixed-dim": "#b6c4ff",
+                        "primary": "#00236f",
+                        "on-secondary-fixed": "#0b1c30",
+                        "outline-variant": "#c5c5d3",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#773205",
+                        "primary-fixed": "#dce1ff",
+                        "on-tertiary-container": "#f39461",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#264191",
+                        "on-background": "#191c1e",
+                        "surface-bright": "#f7f9fb",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#1e3a8a",
+                        "outline": "#757682",
+                        "surface-container-high": "#e6e8ea",
+                        "background": "#f7f9fb",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#eceef0",
+                        "inverse-primary": "#b6c4ff",
+                        "tertiary-fixed-dim": "#ffb691",
+                        "inverse-on-surface": "#eff1f3",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffdbcb",
+                        "on-primary-container": "#90a8ff",
+                        "tertiary-container": "#6e2c00",
+                        "surface-variant": "#e0e3e5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .bg-shift { background-color: #f2f4f6; }
+        .no-border-lines { border: none !important; }
+        .rich-text-area { min-height: 200px; }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- SideNavBar Integration -->
+<aside class="h-screen w-64 fixed left-0 top-0 overflow-y-auto bg-slate-50 dark:bg-slate-950 flex flex-col py-6 space-y-2 no-border-lines bg-shift z-50">
+<div class="px-6 mb-8">
+<h1 class="text-xl font-black tracking-tighter text-blue-900 dark:text-white">The Atelier</h1>
+<p class="text-xs text-slate-500 font-medium tracking-widest uppercase">Management Console</p>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Dashboard -->
+<a class="text-slate-600 dark:text-slate-400 mx-3 px-4 py-2 flex items-center gap-3 hover:bg-slate-200/50 transition-all scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-sm font-medium Inter">Dashboard</span>
+</a>
+<!-- Buku (Active) -->
+<a class="bg-blue-100 dark:bg-blue-900/30 text-blue-900 dark:text-blue-300 rounded-full mx-3 px-4 py-2 flex items-center gap-3 scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="book" style="font-variation-settings: 'FILL' 1;">book</span>
+<span class="text-sm font-medium Inter">Buku</span>
+</a>
+<!-- Siswa -->
+<a class="text-slate-600 dark:text-slate-400 mx-3 px-4 py-2 flex items-center gap-3 hover:bg-slate-200/50 transition-all scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="text-sm font-medium Inter">Siswa</span>
+</a>
+<!-- Peminjaman -->
+<a class="text-slate-600 dark:text-slate-400 mx-3 px-4 py-2 flex items-center gap-3 hover:bg-slate-200/50 transition-all scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="handshake">handshake</span>
+<span class="text-sm font-medium Inter">Peminjaman</span>
+</a>
+<!-- Pengembalian -->
+<a class="text-slate-600 dark:text-slate-400 mx-3 px-4 py-2 flex items-center gap-3 hover:bg-slate-200/50 transition-all scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="assignment_return">assignment_return</span>
+<span class="text-sm font-medium Inter">Pengembalian</span>
+</a>
+<!-- Laporan -->
+<a class="text-slate-600 dark:text-slate-400 mx-3 px-4 py-2 flex items-center gap-3 hover:bg-slate-200/50 transition-all scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+<span class="text-sm font-medium Inter">Laporan</span>
+</a>
+</nav>
+<div class="pt-6 border-t border-slate-200 dark:border-slate-800">
+<a class="text-slate-600 dark:text-slate-400 mx-3 px-4 py-2 flex items-center gap-3 hover:bg-slate-200/50 transition-all scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="text-sm font-medium Inter">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen p-8 lg:p-12">
+<!-- Header & Breadcrumbs -->
+<header class="mb-10">
+<nav aria-label="Breadcrumb" class="flex mb-4 text-sm font-medium text-on-surface-variant/60">
+<ol class="flex items-center space-x-2">
+<li><a class="hover:text-primary transition-colors" href="#">Dashboard</a></li>
+<li><span class="material-symbols-outlined text-sm">chevron_right</span></li>
+<li><a class="hover:text-primary transition-colors" href="#">Buku</a></li>
+<li><span class="material-symbols-outlined text-sm">chevron_right</span></li>
+<li class="text-on-surface font-semibold">Create</li>
+</ol>
+</nav>
+<h2 class="text-3xl font-extrabold tracking-tight text-primary">Tambah Koleksi Baru</h2>
+<p class="text-on-surface-variant mt-1">Lengkapi informasi katalog buku secara detail untuk sistem manajemen perpustakaan.</p>
+</header>
+<!-- Form Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_20px_40px_rgba(0,35,111,0.06)] overflow-hidden">
+<form action="#" class="p-8" method="POST">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Left Column: Visuals -->
+<div class="md:col-span-4 space-y-6">
+<div class="group relative">
+<label class="block text-xs font-bold tracking-widest uppercase text-on-surface-variant mb-3">Cover Buku</label>
+<div class="aspect-[3/4] rounded-lg bg-surface-container-low border-2 border-dashed border-outline-variant/30 flex flex-col items-center justify-center p-6 text-center group-hover:border-primary/50 transition-all duration-300 cursor-pointer">
+<span class="material-symbols-outlined text-5xl text-outline-variant group-hover:text-primary mb-4 transition-colors">cloud_upload</span>
+<p class="text-sm font-medium text-on-surface">Unggah Sampul Buku</p>
+<p class="text-xs text-on-surface-variant mt-2 leading-relaxed">Format JPG, PNG atau WebP.<br/>Rasio disarankan 3:4</p>
+<input class="hidden" type="file"/>
+</div>
+</div>
+<div class="p-5 rounded-lg bg-primary-fixed/30 border border-primary/10">
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="info">info</span>
+<div>
+<h4 class="text-sm font-bold text-on-primary-fixed">Informasi Katalog</h4>
+<p class="text-xs text-on-primary-fixed-variant leading-relaxed mt-1">Pastikan ISBN dan Kode Buku unik untuk memudahkan pencarian di OPAC.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Fields -->
+<div class="md:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Book Code -->
+<div class="space-y-2">
+<label class="block text-xs font-bold tracking-widest uppercase text-on-surface-variant" for="kode_buku">Kode Buku</label>
+<input class="w-full px-0 py-3 bg-transparent border-b border-outline-variant/30 focus:border-primary focus:ring-0 transition-all text-on-surface font-medium placeholder:text-outline-variant/60" id="kode_buku" placeholder="SKN-2024-001" type="text"/>
+</div>
+<!-- ISBN -->
+<div class="space-y-2">
+<label class="block text-xs font-bold tracking-widest uppercase text-on-surface-variant" for="isbn">ISBN</label>
+<input class="w-full px-0 py-3 bg-transparent border-b border-outline-variant/30 focus:border-primary focus:ring-0 transition-all text-on-surface font-medium placeholder:text-outline-variant/60" id="isbn" placeholder="978-602-..." type="text"/>
+</div>
+<!-- Title -->
+<div class="md:col-span-2 space-y-2">
+<label class="block text-xs font-bold tracking-widest uppercase text-on-surface-variant" for="judul">Judul Buku</label>
+<input class="w-full px-0 py-3 bg-transparent border-b border-outline-variant/30 focus:border-primary focus:ring-0 transition-all text-on-surface font-semibold text-lg placeholder:text-outline-variant/60" id="judul" placeholder="Contoh: Dasar-Dasar Teknik Elektronika" type="text"/>
+</div>
+<!-- Author -->
+<div class="space-y-2">
+<label class="block text-xs font-bold tracking-widest uppercase text-on-surface-variant" for="penulis">Penulis / Pengarang</label>
+<input class="w-full px-0 py-3 bg-transparent border-b border-outline-variant/30 focus:border-primary focus:ring-0 transition-all text-on-surface font-medium placeholder:text-outline-variant/60" id="penulis" placeholder="Nama Lengkap Penulis" type="text"/>
+</div>
+<!-- Category -->
+<div class="space-y-2">
+<label class="block text-xs font-bold tracking-widest uppercase text-on-surface-variant" for="kategori">Kategori</label>
+<select class="w-full px-0 py-3 bg-transparent border-b border-outline-variant/30 focus:border-primary focus:ring-0 transition-all text-on-surface font-medium appearance-none" id="kategori">
+<option disabled="" selected="" value="">Pilih Kategori</option>
+<option value="tekmik">Teknik &amp; Rekayasa</option>
+<option value="bisnis">Bisnis &amp; Manajemen</option>
+<option value="it">Teknologi Informasi</option>
+<option value="umum">Karya Umum</option>
+<option value="fiksi">Fiksi &amp; Sastra</option>
+</select>
+</div>
+<!-- Publisher -->
+<div class="space-y-2">
+<label class="block text-xs font-bold tracking-widest uppercase text-on-surface-variant" for="penerbit">Penerbit</label>
+<input class="w-full px-0 py-3 bg-transparent border-b border-outline-variant/30 focus:border-primary focus:ring-0 transition-all text-on-surface font-medium placeholder:text-outline-variant/60" id="penerbit" placeholder="Nama Penerbit" type="text"/>
+</div>
+<!-- Publish Year -->
+<div class="space-y-2">
+<label class="block text-xs font-bold tracking-widest uppercase text-on-surface-variant" for="tahun">Tahun Terbit</label>
+<input class="w-full px-0 py-3 bg-transparent border-b border-outline-variant/30 focus:border-primary focus:ring-0 transition-all text-on-surface font-medium placeholder:text-outline-variant/60" id="tahun" placeholder="2024" type="number"/>
+</div>
+<!-- Pages -->
+<div class="space-y-2">
+<label class="block text-xs font-bold tracking-widest uppercase text-on-surface-variant" for="halaman">Jumlah Halaman</label>
+<input class="w-full px-0 py-3 bg-transparent border-b border-outline-variant/30 focus:border-primary focus:ring-0 transition-all text-on-surface font-medium placeholder:text-outline-variant/60" id="halaman" placeholder="0" type="number"/>
+</div>
+<!-- Stock -->
+<div class="space-y-2">
+<label class="block text-xs font-bold tracking-widest uppercase text-on-surface-variant" for="stok">Stok Tersedia</label>
+<input class="w-full px-0 py-3 bg-transparent border-b border-outline-variant/30 focus:border-primary focus:ring-0 transition-all text-on-surface font-medium placeholder:text-outline-variant/60" id="stok" placeholder="0" type="number"/>
+</div>
+<!-- Shelf Location -->
+<div class="md:col-span-2 space-y-2">
+<label class="block text-xs font-bold tracking-widest uppercase text-on-surface-variant" for="lokasi">Lokasi Rak</label>
+<input class="w-full px-0 py-3 bg-transparent border-b border-outline-variant/30 focus:border-primary focus:ring-0 transition-all text-on-surface font-medium placeholder:text-outline-variant/60" id="lokasi" placeholder="Contoh: R-01-A (Sains)" type="text"/>
+</div>
+<!-- Description -->
+<div class="md:col-span-2 space-y-2">
+<label class="block text-xs font-bold tracking-widest uppercase text-on-surface-variant" for="deskripsi">Deskripsi / Sinopsis</label>
+<div class="mt-2 border border-outline-variant/20 rounded-lg overflow-hidden">
+<div class="bg-surface-container-low px-4 py-2 flex items-center gap-4 border-b border-outline-variant/20">
+<button class="material-symbols-outlined text-sm text-on-surface-variant hover:text-primary" type="button">format_bold</button>
+<button class="material-symbols-outlined text-sm text-on-surface-variant hover:text-primary" type="button">format_italic</button>
+<button class="material-symbols-outlined text-sm text-on-surface-variant hover:text-primary" type="button">format_list_bulleted</button>
+<button class="material-symbols-outlined text-sm text-on-surface-variant hover:text-primary" type="button">link</button>
+</div>
+<textarea class="w-full p-4 bg-transparent border-none focus:ring-0 rich-text-area text-on-surface leading-relaxed resize-none" id="deskripsi" placeholder="Tuliskan deskripsi singkat mengenai isi buku ini..."></textarea>
+</div>
+</div>
+</div>
+</div>
+<!-- Form Actions -->
+<div class="mt-12 flex items-center justify-end gap-4 pt-8 border-t border-outline-variant/10">
+<button class="px-6 py-2.5 text-sm font-semibold text-on-surface-variant hover:bg-surface-container-low rounded-md transition-all" type="button">
+                        Batal
+                    </button>
+<button class="px-10 py-2.5 text-sm font-bold text-white bg-gradient-to-br from-primary to-primary-container rounded-md shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all" type="submit">
+                        Simpan Koleksi
+                    </button>
+</div>
+</form>
+</div>
+<!-- Secondary Information Section (Bento Style) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+<div class="p-6 bg-secondary-fixed text-on-secondary-fixed rounded-xl flex items-start gap-4">
+<span class="material-symbols-outlined bg-on-secondary-fixed/10 p-2 rounded-lg">verified</span>
+<div>
+<h5 class="font-bold text-sm">Verifikasi Otomatis</h5>
+<p class="text-xs opacity-80 mt-1">Sistem akan melakukan pengecekan duplikasi ISBN secara real-time.</p>
+</div>
+</div>
+<div class="p-6 bg-tertiary-fixed text-on-tertiary-fixed rounded-xl flex items-start gap-4">
+<span class="material-symbols-outlined bg-on-tertiary-fixed/10 p-2 rounded-lg">public</span>
+<div>
+<h5 class="font-bold text-sm">Visibilitas Katalog</h5>
+<p class="text-xs opacity-80 mt-1">Buku yang disimpan akan langsung tersedia di aplikasi mobile siswa.</p>
+</div>
+</div>
+<div class="p-6 bg-surface-container-highest text-on-surface-variant rounded-xl flex items-start gap-4">
+<span class="material-symbols-outlined bg-on-surface-variant/10 p-2 rounded-lg">history</span>
+<div>
+<h5 class="font-bold text-sm">Log Perubahan</h5>
+<p class="text-xs opacity-80 mt-1">Setiap entri akan dicatat dalam riwayat aktivitas admin.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Background Decorative Element -->
+<div class="fixed top-0 right-0 -z-10 w-1/2 h-screen bg-gradient-to-bl from-primary/5 to-transparent pointer-events-none"></div>
+</body></html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SMKN 1 Purwokerto Library - Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#341100",
+                    "tertiary": "#4b1c00",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-highest": "#e0e3e5",
+                    "primary-fixed-dim": "#b6c4ff",
+                    "on-primary": "#ffffff",
+                    "inverse-surface": "#2d3133",
+                    "outline": "#757682",
+                    "on-tertiary-fixed-variant": "#773205",
+                    "primary-container": "#1e3a8a",
+                    "surface-container-low": "#f2f4f6",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed": "#ffdbcb",
+                    "primary": "#00236f",
+                    "primary-fixed": "#dce1ff",
+                    "secondary-container": "#d0e1fb",
+                    "error-container": "#ffdad6",
+                    "surface-container-high": "#e6e8ea",
+                    "on-primary-fixed-variant": "#264191",
+                    "inverse-on-surface": "#eff1f3",
+                    "error": "#ba1a1a",
+                    "secondary": "#505f76",
+                    "inverse-primary": "#b6c4ff",
+                    "on-tertiary-container": "#f39461",
+                    "on-error-container": "#93000a",
+                    "surface-container": "#eceef0",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "on-secondary": "#ffffff",
+                    "background": "#f7f9fb",
+                    "surface-bright": "#f7f9fb",
+                    "on-secondary-fixed": "#0b1c30",
+                    "on-surface-variant": "#444651",
+                    "on-primary-container": "#90a8ff",
+                    "on-background": "#191c1e",
+                    "secondary-fixed": "#d3e4fe",
+                    "surface-variant": "#e0e3e5",
+                    "on-primary-fixed": "#00164e",
+                    "tertiary-fixed-dim": "#ffb691",
+                    "surface-container-lowest": "#ffffff",
+                    "outline-variant": "#c5c5d3",
+                    "surface-tint": "#4059aa",
+                    "tertiary-container": "#6e2c00",
+                    "surface": "#f7f9fb",
+                    "surface-dim": "#d8dadc",
+                    "on-secondary-container": "#54647a",
+                    "on-surface": "#191c1e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen flex">
+<!-- SideNavBar Component -->
+<aside class="h-screen w-72 flex-col fixed left-0 top-0 bg-slate-50 dark:bg-slate-950 flex flex-col gap-y-1 py-4 z-50">
+<div class="px-7 py-6">
+<h1 class="text-xl font-black tracking-tighter text-blue-900 dark:text-white">The Intellectual Atelier</h1>
+<p class="text-xs font-medium tracking-wide text-slate-500 uppercase mt-1">Skanesa Scholastic Admin</p>
+</div>
+<nav class="flex-1 space-y-1 px-3 mt-4">
+<a class="text-slate-600 dark:text-slate-400 mx-3 px-4 py-2.5 flex items-center gap-3 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-full transition-all group" href="#">
+<span class="material-symbols-outlined text-[22px]">dashboard</span>
+<span class="font-sans text-sm font-medium tracking-wide">Dashboard</span>
+</a>
+<a class="bg-blue-100 dark:bg-blue-900/40 text-blue-900 dark:text-blue-100 rounded-full mx-3 px-4 py-2.5 flex items-center gap-3 transition-all" href="#">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<span class="font-sans text-sm font-medium tracking-wide">Buku</span>
+</a>
+<a class="text-slate-600 dark:text-slate-400 mx-3 px-4 py-2.5 flex items-center gap-3 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-full transition-all group" href="#">
+<span class="material-symbols-outlined text-[22px]">group</span>
+<span class="font-sans text-sm font-medium tracking-wide">Siswa</span>
+</a>
+<a class="text-slate-600 dark:text-slate-400 mx-3 px-4 py-2.5 flex items-center gap-3 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-full transition-all group" href="#">
+<span class="material-symbols-outlined text-[22px]">handshake</span>
+<span class="font-sans text-sm font-medium tracking-wide">Peminjaman</span>
+</a>
+<a class="text-slate-600 dark:text-slate-400 mx-3 px-4 py-2.5 flex items-center gap-3 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-full transition-all group" href="#">
+<span class="material-symbols-outlined text-[22px]">keyboard_return</span>
+<span class="font-sans text-sm font-medium tracking-wide">Pengembalian</span>
+</a>
+<a class="text-slate-600 dark:text-slate-400 mx-3 px-4 py-2.5 flex items-center gap-3 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-full transition-all group" href="#">
+<span class="material-symbols-outlined text-[22px]">assessment</span>
+<span class="font-sans text-sm font-medium tracking-wide">Laporan</span>
+</a>
+</nav>
+<div class="mt-auto px-6 py-6">
+<div class="bg-surface-container-low p-4 rounded-xl flex items-center gap-3">
+<div class="h-10 w-10 rounded-full bg-primary flex items-center justify-center text-white font-bold">A</div>
+<div class="overflow-hidden">
+<p class="text-xs font-bold text-on-surface truncate">Admin Skanesa</p>
+<p class="text-[10px] text-on-surface-variant truncate">admin@smkn1pwt.sch.id</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 ml-72 min-h-screen flex flex-col">
+<!-- TopAppBar Component -->
+<header class="sticky top-0 z-40 w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200/20 dark:border-slate-800/20 shadow-sm flex items-center justify-between px-8 py-4">
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">search</span>
+<input class="bg-surface-container-low border-none rounded-full py-2 pl-10 pr-4 text-sm w-80 focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Quick search catalog..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full ring-2 ring-white"></span>
+</button>
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 transition-colors">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Page Content -->
+<section class="p-8 flex-1">
+<!-- Header Section -->
+<div class="flex items-end justify-between mb-8">
+<div>
+<h2 class="text-4xl font-extrabold tracking-tight text-primary">Buku</h2>
+<p class="text-on-surface-variant mt-2 text-lg">Manage and curate your scholastic library collections.</p>
+</div>
+<button class="bg-gradient-to-br from-primary to-primary-container text-white px-6 py-3 rounded-xl font-semibold shadow-lg shadow-primary/20 hover:opacity-90 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-xl">add</span>
+<span>New Book</span>
+</button>
+</div>
+<!-- Dashboard Filtering -->
+<div class="bg-surface-container-low rounded-xl p-2 mb-6 flex items-center gap-2">
+<div class="flex-1 px-4 py-2 flex items-center gap-3">
+<span class="material-symbols-outlined text-outline">filter_list</span>
+<div class="flex gap-2">
+<button class="bg-surface-container-lowest px-4 py-1.5 rounded-lg text-sm font-medium text-primary shadow-sm">Semua</button>
+<button class="px-4 py-1.5 rounded-lg text-sm font-medium text-on-surface-variant hover:bg-surface-container-high transition-colors">Tersedia</button>
+<button class="px-4 py-1.5 rounded-lg text-sm font-medium text-on-surface-variant hover:bg-surface-container-high transition-colors">Dipinjam</button>
+</div>
+</div>
+<div class="h-8 w-px bg-outline-variant/30"></div>
+<div class="px-4 py-2 flex items-center gap-4">
+<select class="bg-transparent border-none text-sm font-medium text-on-surface focus:ring-0 cursor-pointer">
+<option>Semua Kategori</option>
+<option>Teknik</option>
+<option>Sastra</option>
+<option>Sains</option>
+</select>
+</div>
+</div>
+<!-- Books Table -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden ring-1 ring-outline-variant/10">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high">
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant">Cover</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant">Title &amp; Info</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant">Code</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant">Author</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant">Category</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant">Stock</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<!-- Row 1 -->
+<tr class="group hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-4">
+<div class="w-12 h-16 rounded shadow-sm overflow-hidden bg-slate-200">
+<img class="w-full h-full object-cover" data-alt="minimalist blue book cover with gold typography titled architectural design in a clean studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDarHeg8085uZ5GdOC7c7zPax3RFfexPyUoe_y5kJj5lPGNg2G-f6cycjtfJ0ynnCoL8qnIpiXUcB2PfTr-QVP7JPTqZ4au2cmcW88ioXY1QS3tDzl06_1evBvUTM_zB-i2L3iOd0nPccEdNd8c8XLaKEXz4z99_HtzfRwO4M2afXxMdB3YU9hgPQjreTjRurpgyuMgWuB0DaBtELxZy7IybarTXTTRvGy87McS79GYbv1ZbANHkpKfB1vBVeQJtWVT2p52aJz5Kr1"/>
+</div>
+</td>
+<td class="px-6 py-4">
+<p class="text-sm font-bold text-on-surface">Arsitektur Modern Indonesia</p>
+<p class="text-[11px] text-on-surface-variant">Edisi Revisi 2023</p>
+</td>
+<td class="px-6 py-4">
+<span class="font-mono text-xs text-primary font-semibold">BK-001</span>
+</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">Bambang S.</td>
+<td class="px-6 py-4">
+<span class="bg-secondary-fixed text-on-secondary-fixed text-[10px] px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider">Teknik</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+<span class="text-sm font-medium">12</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-slate-400 hover:text-primary transition-colors"><span class="material-symbols-outlined text-lg">edit</span></button>
+<button class="p-2 text-slate-400 hover:text-error transition-colors"><span class="material-symbols-outlined text-lg">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="group hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-4">
+<div class="w-12 h-16 rounded shadow-sm overflow-hidden bg-slate-200">
+<img class="w-full h-full object-cover" data-alt="classic leather bound book with aged paper texture and elegant script title in soft candle lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDPCplDyn0qvwB4bYQyjCD26Ad8yg4qRR8yyNs5oh-5XOqYQirYHt9WW4gFNk4kt5r6PNsDSbGxTjQjCcF1WkaBOGaan_-cse6AjFCMkaFe4KvmPF7ZL_Y8XySOTcvUivejuBjrXLDbm3hp3b-ODE11P0Xz9v6CoQebaONzG_10i3yUzuo5a6JjKN_oHc2X2MFq3exfgwkSX3OL-3tl7xbqjYDyVVvvrgjsmIS1203RIwyUAwoPzCRJ1N8KLJVkiR4wERmvbtG9Frw"/>
+</div>
+</td>
+<td class="px-6 py-4">
+<p class="text-sm font-bold text-on-surface">Layar Terkembang</p>
+<p class="text-[11px] text-on-surface-variant">Koleksi Sastra Klasik</p>
+</td>
+<td class="px-6 py-4">
+<span class="font-mono text-xs text-primary font-semibold">BK-024</span>
+</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">Sutan Takdir A.</td>
+<td class="px-6 py-4">
+<span class="bg-tertiary-fixed text-on-tertiary-fixed text-[10px] px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider">Sastra</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-error"></div>
+<span class="text-sm font-medium">0</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-slate-400 hover:text-primary transition-colors"><span class="material-symbols-outlined text-lg">edit</span></button>
+<button class="p-2 text-slate-400 hover:text-error transition-colors"><span class="material-symbols-outlined text-lg">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="group hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-4">
+<div class="w-12 h-16 rounded shadow-sm overflow-hidden bg-slate-200">
+<img class="w-full h-full object-cover" data-alt="technical textbook with circuit board diagrams and bright neon accents in a sharp laboratory lighting style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFlOUhkG04QzX7JODWfp3BIgFiha_oSX9nenjW6_5ki-bscdayV7fUfe-SjNbCMLxoZO7HPI_tYdb46ZVRp_l4splAnkZ5OPAWINFDD7AlnjoqluHwkrHxqO7qVweuktFPA_FzzmRK6zTcv6Gt-jO3-5D_LAh88jObei6TgXd7QpL4wkHof8GfGHQlXSS0cORmp_cbwSxAPvjEuLhoVcxEMBfAQeM46vNgvRqr3lxqej1LRtEK59CqPCDJDA6526KuMgVGoGGLBvwW"/>
+</div>
+</td>
+<td class="px-6 py-4">
+<p class="text-sm font-bold text-on-surface">Dasar Elektronika Daya</p>
+<p class="text-[11px] text-on-surface-variant">Kurikulum Merdeka 2024</p>
+</td>
+<td class="px-6 py-4">
+<span class="font-mono text-xs text-primary font-semibold">BK-056</span>
+</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">Ir. Suparno</td>
+<td class="px-6 py-4">
+<span class="bg-secondary-fixed text-on-secondary-fixed text-[10px] px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider">Teknik</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-amber-500"></div>
+<span class="text-sm font-medium">3</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-slate-400 hover:text-primary transition-colors"><span class="material-symbols-outlined text-lg">edit</span></button>
+<button class="p-2 text-slate-400 hover:text-error transition-colors"><span class="material-symbols-outlined text-lg">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="group hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-4">
+<div class="w-12 h-16 rounded shadow-sm overflow-hidden bg-slate-200">
+<img class="w-full h-full object-cover" data-alt="abstract book cover with soft organic shapes in earthy tones and modern typography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPFVTJMcc60OOv8acKn_8GMSb-CdQMUBLyREyzSYYdmA7iPsDNIbzjKLoX_C9Wpdhy-bQEbtBBzE5VI6bOKsFOoXwGUE-_11JFFLYmKK3ZSFuh9xiAPhdVhx1YOVSGKXDqE5-MuspoNbvI7_sFr0zGARA43VYSmnRLA81UgaEOsmTPNbx7t_G5cki66mOo_1_RVkfSdIE32jvxwIdGIQKTN1r3UPdQQmDfNjsVs74_SB-bMfxXdFTjKp-d3ADjG9z-LkhhN5utZsnC"/>
+</div>
+</td>
+<td class="px-6 py-4">
+<p class="text-sm font-bold text-on-surface">Psikologi Pendidikan Dasar</p>
+<p class="text-[11px] text-on-surface-variant">Penerbit Erlangga</p>
+</td>
+<td class="px-6 py-4">
+<span class="font-mono text-xs text-primary font-semibold">BK-112</span>
+</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">Dr. Anita S.</td>
+<td class="px-6 py-4">
+<span class="bg-surface-container-highest text-on-surface-variant text-[10px] px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider">Umum</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+<span class="text-sm font-medium">45</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-slate-400 hover:text-primary transition-colors"><span class="material-symbols-outlined text-lg">edit</span></button>
+<button class="p-2 text-slate-400 hover:text-error transition-colors"><span class="material-symbols-outlined text-lg">delete</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination -->
+<div class="px-6 py-4 bg-surface-container-low flex items-center justify-between">
+<p class="text-xs font-medium text-on-surface-variant">Showing <span class="text-on-surface">1</span> to <span class="text-on-surface">10</span> of <span class="text-on-surface">248</span> books</p>
+<div class="flex gap-1">
+<button class="h-8 w-8 rounded flex items-center justify-center text-on-surface-variant hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="h-8 w-8 rounded flex items-center justify-center bg-primary text-white text-xs font-bold">1</button>
+<button class="h-8 w-8 rounded flex items-center justify-center text-on-surface-variant hover:bg-white transition-colors text-xs font-medium">2</button>
+<button class="h-8 w-8 rounded flex items-center justify-center text-on-surface-variant hover:bg-white transition-colors text-xs font-medium">3</button>
+<span class="px-2 self-center text-on-surface-variant text-xs">...</span>
+<button class="h-8 w-8 rounded flex items-center justify-center text-on-surface-variant hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Dashboard Stats Summary (Bento Style) -->
+<div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-primary/5 rounded-2xl p-6 border border-primary/10">
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-primary text-3xl">auto_stories</span>
+<span class="text-[10px] font-bold text-primary px-2 py-1 bg-primary/10 rounded-lg">+12% Monthly</span>
+</div>
+<p class="text-3xl font-black text-primary">3,492</p>
+<p class="text-sm font-medium text-primary/70">Total Catalog Volume</p>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl p-6 border border-outline-variant/10">
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-secondary text-3xl">pending_actions</span>
+</div>
+<p class="text-3xl font-black text-on-surface">184</p>
+<p class="text-sm font-medium text-on-surface-variant">Currently Borrowed</p>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl p-6 border border-outline-variant/10">
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-error text-3xl">running_with_errors</span>
+</div>
+<p class="text-3xl font-black text-error">12</p>
+<p class="text-sm font-medium text-on-surface-variant">Overdue Returns</p>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="mt-auto py-6 px-8 border-t border-outline-variant/10 text-center">
+<p class="text-[10px] uppercase tracking-[0.2em] font-bold text-outline">SMKN 1 Purwokerto © 2024 • Scholastic Management System</p>
+</footer>
+</main>
+</body></html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Siswa Dashboard - SMKN 1 Purwokerto Library</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed-dim": "#b6c4ff",
+                    "surface-bright": "#f7f9fb",
+                    "inverse-primary": "#b6c4ff",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "outline-variant": "#c5c5d3",
+                    "on-primary-fixed-variant": "#264191",
+                    "surface-container-highest": "#e0e3e5",
+                    "secondary-fixed": "#d3e4fe",
+                    "secondary": "#505f76",
+                    "surface-container-low": "#f2f4f6",
+                    "on-background": "#191c1e",
+                    "on-secondary-container": "#54647a",
+                    "error": "#ba1a1a",
+                    "surface": "#f7f9fb",
+                    "on-tertiary-fixed": "#341100",
+                    "surface-variant": "#e0e3e5",
+                    "tertiary-fixed-dim": "#ffb691",
+                    "on-tertiary": "#ffffff",
+                    "inverse-on-surface": "#eff1f3",
+                    "primary": "#00236f",
+                    "tertiary-fixed": "#ffdbcb",
+                    "on-secondary-fixed": "#0b1c30",
+                    "on-secondary": "#ffffff",
+                    "inverse-surface": "#2d3133",
+                    "surface-dim": "#d8dadc",
+                    "on-tertiary-container": "#f39461",
+                    "background": "#f7f9fb",
+                    "on-surface-variant": "#444651",
+                    "on-primary": "#ffffff",
+                    "outline": "#757682",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-container": "#1e3a8a",
+                    "secondary-container": "#d0e1fb",
+                    "primary-fixed": "#dce1ff",
+                    "on-primary-fixed": "#00164e",
+                    "on-tertiary-fixed-variant": "#773205",
+                    "surface-tint": "#4059aa",
+                    "error-container": "#ffdad6",
+                    "on-primary-container": "#90a8ff",
+                    "surface-container": "#eceef0",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "tertiary": "#4b1c00",
+                    "tertiary-container": "#6e2c00",
+                    "surface-container-high": "#e6e8ea",
+                    "on-error": "#ffffff",
+                    "on-surface": "#191c1e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-slate-100 dark:bg-slate-900 flex flex-col p-4 z-50">
+<div class="mb-10 px-4">
+<h1 class="text-lg font-black text-blue-900 dark:text-white">SMKN 1 Purwokerto</h1>
+<p class="text-xs font-medium tracking-wide uppercase text-slate-500">The Intellectual Atelier</p>
+</div>
+<nav class="flex-1 space-y-2">
+<!-- Active: Dashboard -->
+<a class="flex items-center gap-3 bg-blue-100 dark:bg-blue-900/50 text-blue-900 dark:text-blue-100 rounded-full px-4 py-2 font-bold scale-95 transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-sm font-medium tracking-wide uppercase">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 hover:text-blue-800 dark:hover:text-blue-200 px-4 py-2 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="book_5">book_5</span>
+<span class="text-sm font-medium tracking-wide uppercase">Koleksi Buku</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 hover:text-blue-800 dark:hover:text-blue-200 px-4 py-2 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="text-sm font-medium tracking-wide uppercase">Riwayat Pinjam</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-slate-200/50 pt-4 px-4 flex items-center gap-3">
+<img alt="Student Profile Photo" class="w-10 h-10 rounded-full object-cover" data-alt="Close up portrait of a young male student with a friendly expression and neat hairstyle in a classroom setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0DHHj3qwkGL9ZSej74EI9ywanf0_FhDtVSc3TweXJpUUZqvyamPoiWaLHrNgbYN7mY4UxEhRSGusfDzNGElzcugTNN1Q-dThZAJ2C3TTHNRPnrJIjgFkxMHzlsjguv1u0DFFfLVUJq7GqTGrIMg7tpEU4MXi6yeZzhZiJyaudJbfWy2VAQtjXPENLLOwNDXwCWWMrhtcKQw5Szj2-jj_hb433XfKReYfHoQw76qggaBNgJ0ChNVWr66ZmLuqnnY_PNu1Zy4tDqxNS"/>
+<div class="flex-1 overflow-hidden">
+<p class="text-sm font-bold text-blue-900 truncate">Siswa Dashboard</p>
+<p class="text-xs text-slate-500 truncate">Siswa SMKN 1</p>
+</div>
+<button class="text-slate-500 hover:text-error transition-colors">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+</button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 flex-1 flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<header class="w-full h-16 sticky top-0 z-40 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200/20 dark:border-slate-800/20 shadow-sm dark:shadow-none flex justify-between items-center px-8">
+<div class="flex items-center flex-1 max-w-xl">
+<div class="relative w-full group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" data-icon="search">search</span>
+<input class="w-full bg-slate-50 border-none rounded-xl py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary focus:bg-white transition-all outline-none" placeholder="Cari buku, pengarang, atau kategori..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6 ml-8">
+<button class="text-slate-500 hover:bg-slate-50 p-2 rounded-lg transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="text-slate-500 hover:bg-slate-50 p-2 rounded-lg transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="h-8 w-[1px] bg-slate-200"></div>
+<div class="flex items-center gap-3">
+<span class="text-sm font-semibold text-blue-900">Library Atelier</span>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="p-10 max-w-7xl mx-auto w-full">
+<!-- Welcome Section -->
+<section class="mb-12">
+<h2 class="text-4xl font-extrabold tracking-tight text-primary mb-2">Selamat datang, Budi Pratama!</h2>
+<p class="text-on-surface-variant max-w-2xl">Sudahkah Anda mengeksplorasi koleksi literatur terbaru kami hari ini? Tingkatkan wawasan Anda melalui arsip digital SMKN 1 Purwokerto.</p>
+</section>
+<!-- Statistics Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border-b-2 border-primary/10">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-secondary-fixed text-on-secondary-fixed rounded-xl">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+</div>
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Active Loans</span>
+</div>
+<div class="text-4xl font-bold text-primary">03</div>
+<p class="text-xs text-on-surface-variant mt-2">Buku yang sedang dipinjam</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border-b-2 border-error/10">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-error-container text-on-error-container rounded-xl">
+<span class="material-symbols-outlined" data-icon="event_busy">event_busy</span>
+</div>
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Overdue Books</span>
+</div>
+<div class="text-4xl font-bold text-error">01</div>
+<p class="text-xs text-error mt-2 font-medium">Memerlukan pengembalian segera</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border-b-2 border-tertiary/10">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-tertiary-fixed text-on-tertiary-fixed rounded-xl">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+</div>
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Total Borrowed</span>
+</div>
+<div class="text-4xl font-bold text-on-surface">42</div>
+<p class="text-xs text-on-surface-variant mt-2">Total buku yang pernah dipinjam</p>
+</div>
+</div>
+<!-- Quick Action Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Action 1: Koleksi Buku -->
+<div class="group relative overflow-hidden bg-primary-container rounded-xl aspect-[4/5] flex flex-col justify-end p-8">
+<div class="absolute inset-0 opacity-40 group-hover:scale-110 transition-transform duration-700 bg-cover bg-center" data-alt="Interior of a modern high-end library with tall dark wood shelves filled with books and warm ambient lighting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCH48it2MWannMeX9wuphtPIvLdkk3ISHiL_hxv17v75t1H0nzndgrVExHwLV5WKP8INQjNd9FsxkSYBob4lm0fkqGWf4pl43ngKCmXLSahTTGICLG6Z8hJ_Z47fF4gcRhjcwaia6FCkc9OnDfvXT8iN_vCEWZE3B9T6pRBYQwdqjXwr4ZU-t93cCeBVG3P89WT5y6QmtYVRWa3_JOEMNXsqGIx5NSyWvBrNkj9_EYPuRaFBM4RPS7eJjGRSXGYL8dGndIq608RtqpK')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/20 to-transparent"></div>
+<div class="relative z-10">
+<span class="material-symbols-outlined text-primary-fixed mb-4 text-3xl" data-icon="library_books">library_books</span>
+<h3 class="text-2xl font-bold text-white mb-2">Koleksi Buku</h3>
+<p class="text-on-primary-container text-sm mb-6">Jelajahi ribuan judul buku dari berbagai kategori kejuruan dan fiksi.</p>
+<button class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-6 py-2 rounded-full text-sm font-bold group-hover:bg-white group-hover:text-primary transition-all">Lihat Katalog</button>
+</div>
+</div>
+<!-- Action 2: Riwayat Pinjam -->
+<div class="group relative overflow-hidden bg-surface-container-high rounded-xl aspect-[4/5] flex flex-col justify-end p-8">
+<div class="absolute inset-0 opacity-30 group-hover:scale-110 transition-transform duration-700 bg-cover bg-center" data-alt="Close up of a stack of old books with a pair of reading glasses on top in a quiet study room" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBN7m5ZXyUTRKkLPNamdJ2zdpmhmDgVSEsf4U8deC779_hNBzL-wK_yM0IkfQyq2peywi_GfU6FQApjlH3h0RdYGl9uFo5ePjCyMvC1LlTMfXswblZhdHjhojxQAcsr76AgG8h4CUgS6BFqiKqcqiISOUel9-m_dwVdn0FkHefkSEc1PStRXcKy1zhzNBNMXx2iY7mDOUiHtNS78xtGrYnYrE2KmBBZDOw164c2gqIbseRz7kB2xFI_RWNhLQ8XRJFbE_5SWS1HRXka')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/10 to-transparent"></div>
+<div class="relative z-10">
+<span class="material-symbols-outlined text-secondary-fixed mb-4 text-3xl" data-icon="manage_search">manage_search</span>
+<h3 class="text-2xl font-bold text-white mb-2">Riwayat Pinjam</h3>
+<p class="text-slate-300 text-sm mb-6">Pantau status peminjaman aktif dan lihat arsip buku yang telah Anda baca.</p>
+<button class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-6 py-2 rounded-full text-sm font-bold group-hover:bg-white group-hover:text-slate-900 transition-all">Cek Riwayat</button>
+</div>
+</div>
+<!-- Action 3: Profil Saya -->
+<div class="group relative overflow-hidden bg-tertiary-container rounded-xl aspect-[4/5] flex flex-col justify-end p-8">
+<div class="absolute inset-0 opacity-40 group-hover:scale-110 transition-transform duration-700 bg-cover bg-center" data-alt="A clean wooden desk with a notebook, pen, and laptop in a bright airy studio apartment" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC2xWr1FYthX9b6tUSJWnAlk-ncjenGzXECwFJkXhad9_jhzHVPlMd1yNN1GjAEjBbGoBt9H2g8PQxvqaRfEZ4kNcac03I3esHFoIIWB22JPdvhxSonN-Nfuc52S7fb2k5Xr3kX5wJY8qL49WzqkdrxlkQLcuAdKUe1e_5T0pVrRQk0hot6MDY8ryjSW3vrZM2ckPBhn463sELRpWmrdQpEsYvTy4IWNGEkv1YEZjZZSnvhNQOrtFTLwm7tScKrYoCFuZbQpCIfQ7qe')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-tertiary via-tertiary/20 to-transparent"></div>
+<div class="relative z-10">
+<span class="material-symbols-outlined text-tertiary-fixed mb-4 text-3xl" data-icon="account_circle">account_circle</span>
+<h3 class="text-2xl font-bold text-white mb-2">Profil Saya</h3>
+<p class="text-on-tertiary-container text-sm mb-6">Perbarui informasi akun, ganti password, dan kelola preferensi notifikasi.</p>
+<button class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-6 py-2 rounded-full text-sm font-bold group-hover:bg-white group-hover:text-tertiary transition-all">Edit Profil</button>
+</div>
+</div>
+</div>
+<!-- Recent Activity / News (Asymmetric Section) -->
+<section class="mt-16 grid grid-cols-1 lg:grid-cols-12 gap-12">
+<div class="lg:col-span-8">
+<h4 class="text-xl font-bold text-primary mb-8 flex items-center gap-2">
+<span class="w-8 h-[2px] bg-primary"></span>
+                        Buku Sedang Dipinjam
+                    </h4>
+<div class="space-y-4">
+<div class="flex items-center gap-6 p-4 bg-surface-container-low rounded-xl hover:bg-surface-container-high transition-colors">
+<div class="w-16 h-24 bg-slate-300 rounded shadow-sm overflow-hidden flex-shrink-0">
+<img alt="Book Cover" class="w-full h-full object-cover" data-alt="Cover of a technical book about electrical engineering with circuit patterns and bold typography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDODOoSkACkaz4nj8lPIUDyMyR5q72Shxj4_XGMsWd0qHCaXpF6UUG-QzfswYotGP_SAtJ2CpL4EInPpMtwrwdze7pAkVJ4wxYvHC28vQfJpSnt4hV5OL7nEIUht9hw7ATtX30stuPbhnaXK23-jivL5t55cP0BI5rUvHRUXnRP9H7vuI03W7BmS6puhzlLqy97n478dHFfdVprIGxY4O82v-SJQPgSVrToKaf8pAXpxSNjpraxtKvXWzBY9i0eNKkt9axjPmX0gX61"/>
+</div>
+<div class="flex-1">
+<span class="px-2 py-1 bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold rounded-full uppercase tracking-tighter">Teknik Elektro</span>
+<h5 class="text-lg font-bold text-on-surface mt-1">Dasar-Dasar Sirkuit Digital</h5>
+<p class="text-xs text-on-surface-variant">Oleh Dr. Ir. Sudjatmiko • Dipinjam: 12 Okt 2023</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] font-bold uppercase text-on-surface-variant mb-1">Tenggat Waktu</p>
+<p class="text-sm font-bold text-primary">26 Okt 2023</p>
+<span class="text-[10px] text-on-surface-variant">Sisa 5 Hari</span>
+</div>
+</div>
+<div class="flex items-center gap-6 p-4 bg-surface-container-low rounded-xl border border-error/10">
+<div class="w-16 h-24 bg-slate-300 rounded shadow-sm overflow-hidden flex-shrink-0">
+<img alt="Book Cover" class="w-full h-full object-cover" data-alt="Close up of a classic literature book spine with elegant gold lettering on a dark blue background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzbDteK0I-fcbk22g7_Kb3ZS65XhfyrXeAHrwaUTef3Sdi3WxvjL9Wifors_BhXcCylR_N3KmfMkMyOCtku8ATUWHhnqWGQ4sw1t2FmW6Z6HceDqgyAuDBJOmNGSLj3CmZ_fhQj3gCpybYr0Xn3tX-4m7T0VzwkgUhtXn3GqYAeECv4TS-waUBZH5195f8WDzuNmD7sQRhzy594WiZtUVqndRHaIS1UTyVXWQJ4fxigBCVH5qTU8Zgx9-KnRDQKMrePKc-xVUoUV7b"/>
+</div>
+<div class="flex-1">
+<span class="px-2 py-1 bg-error-container text-on-error-container text-[10px] font-bold rounded-full uppercase tracking-tighter">Sastra Klasik</span>
+<h5 class="text-lg font-bold text-on-surface mt-1">Bumi Manusia</h5>
+<p class="text-xs text-on-surface-variant">Oleh Pramoedya Ananta Toer • Dipinjam: 01 Okt 2023</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] font-bold uppercase text-error mb-1">TERLAMBAT</p>
+<p class="text-sm font-bold text-error">15 Okt 2023</p>
+<span class="text-[10px] text-error font-medium">Denda: Rp 5.000</span>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-4 bg-primary text-white p-8 rounded-xl relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16 blur-2xl"></div>
+<h4 class="text-xl font-bold mb-6">Pengumuman</h4>
+<ul class="space-y-6">
+<li class="border-b border-white/10 pb-4">
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary-fixed-dim">20 Okt 2023</span>
+<h6 class="font-bold mt-1 leading-tight">Penambahan Koleksi Buku Teknik Informatika Baru</h6>
+<p class="text-xs text-on-primary-container mt-2">Dapatkan akses ke 50+ judul terbaru di rak utama.</p>
+</li>
+<li>
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary-fixed-dim">15 Okt 2023</span>
+<h6 class="font-bold mt-1 leading-tight">Jam Operasional Semester Ganjil</h6>
+<p class="text-xs text-on-primary-container mt-2">Perpustakaan buka hingga jam 17:00 setiap hari kerja.</p>
+</li>
+</ul>
+<button class="mt-8 text-sm font-bold flex items-center gap-2 hover:translate-x-1 transition-transform">
+                        Semua Berita <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</section>
+</div>
+</main>
+</body></html>

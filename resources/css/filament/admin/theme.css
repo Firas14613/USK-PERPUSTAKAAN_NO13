@@ -1,0 +1,253 @@
+@import '/vendor/filament/filament/resources/css/theme.css';
+@config './tailwind.config.js';
+
+@layer base {
+    :root {
+        --ia-surface: #f7f9fb;
+        --ia-surface-container-low: #f2f4f6;
+        --ia-surface-container-lowest: #ffffff;
+        --ia-surface-container-high: #e6e8ea;
+        --ia-on-surface: #191c1e;
+        --ia-on-surface-variant: #444651;
+        --ia-primary: #00236f;
+        --ia-primary-container: #1e3a8a;
+        --ia-primary-fixed: #dce1ff;
+        --ia-on-primary-fixed: #00164e;
+        --ia-secondary-fixed: #d3e4fe;
+        --ia-on-secondary-fixed: #0b1c30;
+        --ia-tertiary-fixed: #ffdbcb;
+        --ia-on-tertiary-fixed: #341100;
+        --ia-error-container: #ffdad6;
+        --ia-on-error-container: #93000a;
+        --ia-outline-variant: rgba(117, 118, 130, 0.2);
+        --ia-ambient-shadow: 0 20px 40px rgba(0, 35, 111, 0.06);
+    }
+
+    body.fi-body {
+        background-color: var(--ia-surface);
+        color: var(--ia-on-surface);
+    }
+}
+
+@layer components {
+    /* Topbar: glass + ambient shadow (less "template" look) */
+    .fi-topbar nav {
+        background: rgba(255, 255, 255, 0.82) !important;
+        backdrop-filter: blur(16px);
+        box-shadow: var(--ia-ambient-shadow) !important;
+        border: none !important;
+    }
+
+    /* Sidebar: tonal layer, no hard dividers */
+    .fi-sidebar,
+    .fi-sidebar-header {
+        background-color: var(--ia-surface-container-low) !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    /* Sidebar active state: pill + fixed brand tone */
+    .fi-sidebar-item.fi-active > a.fi-sidebar-item-button {
+        background-color: var(--ia-primary-fixed) !important;
+        border-radius: 9999px !important;
+    }
+
+    .fi-sidebar-item.fi-active .fi-sidebar-item-label,
+    .fi-sidebar-item.fi-active .fi-sidebar-item-icon {
+        color: var(--ia-on-primary-fixed) !important;
+    }
+
+    .fi-sidebar-item > a.fi-sidebar-item-button:hover {
+        background-color: rgba(0, 35, 111, 0.06) !important;
+    }
+
+    /* Tables: cleaner header typography + subtle row dividers/hover */
+    .fi-ta-header-cell-label {
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--ia-on-surface-variant) !important;
+        font-size: 0.75rem;
+    }
+
+    .fi-ta-header-ctn {
+        background-color: var(--ia-surface-container-high) !important;
+    }
+
+    .fi-ta-table {
+        --tw-divide-opacity: 0.25;
+    }
+
+    .fi-ta-table tbody tr:hover {
+        background-color: var(--ia-surface-container-low) !important;
+    }
+
+    /* Buku list: hide default table search (custom search above table) */
+    .fi-resource-buku .fi-ta-search-field {
+        display: none !important;
+    }
+
+    /* Buku list: reveal row actions only on hover */
+    .fi-resource-buku .fi-ta-actions {
+        opacity: 0;
+        transition: opacity 150ms ease;
+    }
+
+    .fi-resource-buku tbody tr:hover .fi-ta-actions {
+        opacity: 1;
+    }
+
+    /* Buku list: tonal badge + stock dot */
+    .ia-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 9999px;
+        padding: 0.125rem 0.625rem;
+        font-size: 0.625rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        line-height: 1.25rem;
+        white-space: nowrap;
+    }
+
+    .ia-badge--secondary {
+        background-color: var(--ia-secondary-fixed);
+        color: var(--ia-on-secondary-fixed);
+    }
+
+    .ia-badge--tertiary {
+        background-color: var(--ia-tertiary-fixed);
+        color: var(--ia-on-tertiary-fixed);
+    }
+
+    .ia-badge--neutral {
+        background-color: rgba(25, 28, 30, 0.06);
+        color: var(--ia-on-surface-variant);
+    }
+
+    .ia-stock {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .ia-stock-dot {
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 9999px;
+        display: inline-block;
+    }
+
+    .ia-stock-dot--success {
+        background-color: rgb(16, 185, 129);
+    }
+
+    .ia-stock-dot--warning {
+        background-color: rgb(245, 158, 11);
+    }
+
+    .ia-stock-dot--error {
+        background-color: rgb(220, 38, 38);
+    }
+
+    .ia-stock-val {
+        font-weight: 600;
+    }
+
+    /* Buku create: make inner sections blend into main card */
+    .ia-create-buku .fi-section {
+        background: transparent !important;
+        box-shadow: none !important;
+        border: none !important;
+        --tw-ring-offset-shadow: 0 0 #0000 !important;
+        --tw-ring-shadow: 0 0 #0000 !important;
+    }
+
+    .ia-create-buku .fi-section-header {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        padding-top: 0 !important;
+        padding-bottom: 0.75rem !important;
+    }
+
+    .ia-create-buku .fi-section-header-heading {
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 0.75rem;
+        color: var(--ia-on-surface-variant) !important;
+        font-weight: 700;
+    }
+
+    .ia-create-buku .fi-section-content {
+        padding: 0 !important;
+    }
+
+    .ia-create-buku .fi-section-content-ctn {
+        border-top: none !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        --tw-ring-offset-shadow: 0 0 #0000 !important;
+        --tw-ring-shadow: 0 0 #0000 !important;
+    }
+
+    /* Buku create: inputs as "ghost underline" */
+    .ia-create-buku .fi-input-wrp:not(.fi-invalid) {
+        background: transparent !important;
+        border-bottom: 1px solid rgba(117, 118, 130, 0.3) !important;
+        border-radius: 0 !important;
+    }
+
+    .ia-create-buku .fi-input-wrp:not(.fi-invalid):focus-within {
+        border-bottom: 2px solid var(--ia-primary) !important;
+    }
+
+    /* Buku create: file upload panel looks like drop zone */
+    .ia-create-buku .filepond--root {
+        border-radius: 0.75rem !important;
+    }
+
+    .ia-create-buku .filepond--panel-root {
+        background: var(--ia-surface-container-low) !important;
+        border: 1px dashed rgba(117, 118, 130, 0.35) !important;
+    }
+
+    .ia-create-buku .filepond--drop-label {
+        color: var(--ia-on-surface-variant) !important;
+    }
+
+    .ia-create-buku .filepond--root .filepond--label-action {
+        color: var(--ia-primary) !important;
+        text-decoration: none !important;
+        font-weight: 700;
+    }
+
+    /* Buku create: primary action uses editorial gradient */
+    .ia-create-buku .fi-form-actions .fi-btn-color-primary,
+    .ia-create-buku .fi-form-actions .fi-color-primary {
+        background: linear-gradient(135deg, #00236f 0%, #1e3a8a 100%) !important;
+        box-shadow: 0 12px 24px rgba(0, 35, 111, 0.18) !important;
+        border: none !important;
+    }
+
+    .ia-create-buku .fi-form-actions .fi-btn-color-primary:hover,
+    .ia-create-buku .fi-form-actions .fi-color-primary:hover {
+        filter: brightness(1.03);
+    }
+
+    /* Inputs: soften rings to "ghost border" feel */
+    .fi-input-wrp {
+        box-shadow: none !important;
+    }
+
+    .fi-input-wrp:not(.fi-invalid) {
+        --tw-ring-color: transparent !important;
+        border-bottom: 1px solid var(--ia-outline-variant);
+        border-radius: 0.75rem;
+        background-color: var(--ia-surface-container-lowest) !important;
+    }
+
+    .fi-input-wrp:not(.fi-invalid):focus-within {
+        border-bottom: 2px solid var(--ia-primary);
+    }
+}

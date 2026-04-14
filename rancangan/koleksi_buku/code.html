@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Koleksi Buku - SMKN 1 Purwokerto</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "primary-fixed-dim": "#b6c4ff",
+                "surface-bright": "#f7f9fb",
+                "inverse-primary": "#b6c4ff",
+                "secondary-fixed-dim": "#b7c8e1",
+                "outline-variant": "#c5c5d3",
+                "on-primary-fixed-variant": "#264191",
+                "surface-container-highest": "#e0e3e5",
+                "secondary-fixed": "#d3e4fe",
+                "secondary": "#505f76",
+                "surface-container-low": "#f2f4f6",
+                "on-background": "#191c1e",
+                "on-secondary-container": "#54647a",
+                "error": "#ba1a1a",
+                "surface": "#f7f9fb",
+                "on-tertiary-fixed": "#341100",
+                "surface-variant": "#e0e3e5",
+                "tertiary-fixed-dim": "#ffb691",
+                "on-tertiary": "#ffffff",
+                "inverse-on-surface": "#eff1f3",
+                "primary": "#00236f",
+                "tertiary-fixed": "#ffdbcb",
+                "on-secondary-fixed": "#0b1c30",
+                "on-secondary": "#ffffff",
+                "inverse-surface": "#2d3133",
+                "surface-dim": "#d8dadc",
+                "on-tertiary-container": "#f39461",
+                "background": "#f7f9fb",
+                "on-surface-variant": "#444651",
+                "on-primary": "#ffffff",
+                "outline": "#757682",
+                "surface-container-lowest": "#ffffff",
+                "primary-container": "#1e3a8a",
+                "secondary-container": "#d0e1fb",
+                "primary-fixed": "#dce1ff",
+                "on-primary-fixed": "#00164e",
+                "on-tertiary-fixed-variant": "#773205",
+                "surface-tint": "#4059aa",
+                "error-container": "#ffdad6",
+                "on-primary-container": "#90a8ff",
+                "surface-container": "#eceef0",
+                "on-error-container": "#93000a",
+                "on-secondary-fixed-variant": "#38485d",
+                "tertiary": "#4b1c00",
+                "tertiary-container": "#6e2c00",
+                "surface-container-high": "#e6e8ea",
+                "on-error": "#ffffff",
+                "on-surface": "#191c1e"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "fontFamily": {
+                "headline": ["Inter"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-slate-100 dark:bg-slate-900 flex flex-col p-4 z-50">
+<div class="mb-10 px-4">
+<h1 class="text-lg font-black text-blue-900 dark:text-white">SMKN 1 Purwokerto</h1>
+<p class="text-xs font-medium tracking-wide text-on-surface-variant/70 uppercase">The Intellectual Atelier</p>
+</div>
+<nav class="flex-1 space-y-2">
+<!-- Dashboard -->
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-800 dark:hover:text-blue-200 px-4 py-2 flex items-center gap-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="Inter text-sm font-medium tracking-wide uppercase">Dashboard</span>
+</a>
+<!-- Koleksi Buku (ACTIVE) -->
+<a class="bg-blue-100 dark:bg-blue-900/50 text-blue-900 dark:text-blue-100 rounded-full px-4 py-2 font-bold flex items-center gap-3 scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="book_5">book_5</span>
+<span class="Inter text-sm font-medium tracking-wide uppercase">Koleksi Buku</span>
+</a>
+<!-- Riwayat Pinjam -->
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-800 dark:hover:text-blue-200 px-4 py-2 flex items-center gap-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="Inter text-sm font-medium tracking-wide uppercase">Riwayat Pinjam</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-slate-200/20">
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-800 dark:hover:text-blue-200 px-4 py-2 flex items-center gap-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="Inter text-sm font-medium tracking-wide uppercase">Logout</span>
+</a>
+<div class="mt-6 flex items-center gap-3 px-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="Student Profile Photo" data-alt="professional portrait of a young male student in a clean school uniform with a soft bokeh library background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzLNxmu90IczS1I1zpxqzJenz6QOsERX4J7660g5oVuaZFQbJSS8wkRu7YY-kC-Ua_iTALIT84LwUIFIdn9jvIPOMX0pCRM1uqbUgjxZDgaaopCVAx8kcCSgk_kcSw9QKKd25O92CD9lcgAjPZ7PviuqsVGpxnmK7QW_6g2gTf9HfEI9qwhdyQ_tE968mAc6PBN7to_pKu5_8Avf0GQk02fFg1cM3qwBEirBNKe6pOR9HpYQbrrekxJQv1405AsnLklUTBOgMBNk0S"/>
+</div>
+<div>
+<p class="text-sm font-bold text-blue-900">Aditya Pratama</p>
+<p class="text-[10px] text-slate-500 uppercase tracking-widest">Siswa XII RPL 1</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen">
+<!-- TopNavBar -->
+<header class="w-full h-16 sticky top-0 z-40 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl flex justify-between items-center px-8 shadow-sm dark:shadow-none">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-transparent border-none focus:ring-2 focus:ring-blue-500 text-sm placeholder:text-outline-variant" placeholder="Cari judul, penulis, atau ISBN..." type="text"/>
+<div class="absolute bottom-0 left-0 w-full h-[1px] bg-outline-variant/20 group-focus-within:h-[2px] group-focus-within:bg-primary transition-all"></div>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4 items-center">
+<button class="p-2 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-lg transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-lg transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+<div class="h-8 w-[1px] bg-slate-200/50"></div>
+<span class="text-xl font-bold text-blue-900 dark:text-blue-300">Library Atelier</span>
+</div>
+</header>
+<section class="p-10 max-w-7xl mx-auto">
+<!-- Header & Filter Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+<div class="space-y-2">
+<h2 class="text-4xl font-extrabold tracking-tight text-primary">Koleksi Buku</h2>
+<p class="text-on-surface-variant max-w-lg">Temukan referensi terbaik untuk mendukung perjalanan intelektual Anda di SMKN 1 Purwokerto.</p>
+</div>
+<div class="flex gap-4">
+<div class="relative">
+<select class="appearance-none bg-surface-container-low border-none rounded-xl py-3 pl-5 pr-12 text-sm font-medium focus:ring-2 focus:ring-primary-container text-on-surface">
+<option>Semua Kategori</option>
+<option>Rekayasa Perangkat Lunak</option>
+<option>Teknik Otomotif</option>
+<option>Sains &amp; Matematika</option>
+<option>Sastra &amp; Fiksi</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-outline" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Bento-ish Grid of Books -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+<!-- Book Card 1 -->
+<div class="group bg-surface-container-lowest rounded-xl p-4 transition-all duration-300 hover:shadow-[0_20px_40px_rgba(0,35,111,0.06)] flex flex-col h-full">
+<div class="relative aspect-[3/4] rounded-lg overflow-hidden mb-5 bg-surface-container-low">
+<img alt="Book Cover 1" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="high quality cover of a modern tech book on a clean surface with minimalist typography and vibrant geometric patterns" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxA6L4c9J_HcgFNTYks3uwFTvEN9Xcuz39eKwf20lfhFL5ddKHkau8IyG2ktuKXUSn4HUuZBGJeTfu09NXe4QkVSfFF3p9keuIxBY027Yfda3YLR4ST3V0k6dEnRRDMohrvhDJ6eF82SrjAVwNWBqPlG7lUZqHtA_NGaciqkiQXzr48_hjQGCGiJi5L-2kQXVV6cMxhTa6MV6TOpyHv5gKUBHh8QYAE8oi3ZivyTRDu2DCIjCWJZnuPMSV6c4onIGXpIDJhnhUFJ1M"/>
+<div class="absolute top-3 right-3">
+<span class="bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-sm">Stok: 12</span>
+</div>
+</div>
+<div class="flex-1 space-y-1">
+<p class="text-[10px] font-bold text-on-tertiary-fixed-variant tracking-widest uppercase">REKAYASA PERANGKAT LUNAK</p>
+<h3 class="text-lg font-bold text-on-surface leading-tight">Mastering Laravel 10: The Definitive Guide</h3>
+<p class="text-sm text-on-surface-variant font-medium">Taylor Otwell</p>
+</div>
+<div class="mt-6">
+<button class="w-full bg-primary hover:bg-primary-container text-white font-bold py-3 rounded-xl transition-all active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="bookmark_add">bookmark_add</span>
+                            PINJAM
+                        </button>
+</div>
+</div>
+<!-- Book Card 2 (Disabled/Out of Stock) -->
+<div class="group bg-surface-container-lowest rounded-xl p-4 transition-all duration-300 opacity-80 flex flex-col h-full">
+<div class="relative aspect-[3/4] rounded-lg overflow-hidden mb-5 bg-surface-container-low">
+<div class="absolute inset-0 bg-on-surface/40 backdrop-grayscale z-10 flex items-center justify-center">
+<span class="bg-error-container text-on-error-container px-4 py-2 rounded-lg font-black text-sm rotate-[-12deg] border-2 border-on-error-container/20">HABIS</span>
+</div>
+<img alt="Book Cover 2" class="w-full h-full object-cover grayscale" data-alt="close up of a vintage poetry book cover with elegant cursive lettering and soft paper texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw7iXxrkDYpUiS3yuq-M4lY7BlA3_hlS1PI9mTbTe3MkjpmWVGQ6E4-FLX5y5hiKGtIBKBuu6rHIV9lUHvGMtHkzhTZgaO-DD07M9M4nb75ft5k0SxdOO0f-acMYqIQ6aMaQotGp0_UepvsZSE6cOMsfJPPz3tqG26mQ0qp2U4CEu43FuC8pPAbS0cjbj7Kf_X34vz-Td2u8AUTwtt2gqyv_mbq6FAVgoOyu0GtKwam2N_R6vmArnnF5ZmcBK6h8U62ToT6061kXkw"/>
+<div class="absolute top-3 right-3 z-20">
+<span class="bg-error-container text-on-error-container text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-sm">Stok: 0</span>
+</div>
+</div>
+<div class="flex-1 space-y-1">
+<p class="text-[10px] font-bold text-on-tertiary-fixed-variant tracking-widest uppercase">SASTRA &amp; FIKSI</p>
+<h3 class="text-lg font-bold text-on-surface leading-tight">The Art of Silent Echoes</h3>
+<p class="text-sm text-on-surface-variant font-medium">Eleanor Vance</p>
+</div>
+<div class="mt-6">
+<button class="w-full bg-surface-container-highest text-outline font-bold py-3 rounded-xl cursor-not-allowed flex items-center justify-center gap-2" disabled="">
+<span class="material-symbols-outlined text-sm" data-icon="lock">lock</span>
+                            PINJAM
+                        </button>
+</div>
+</div>
+<!-- Book Card 3 -->
+<div class="group bg-surface-container-lowest rounded-xl p-4 transition-all duration-300 hover:shadow-[0_20px_40px_rgba(0,35,111,0.06)] flex flex-col h-full">
+<div class="relative aspect-[3/4] rounded-lg overflow-hidden mb-5 bg-surface-container-low">
+<img alt="Book Cover 3" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="stack of diverse engineering textbooks in a bright modern studio setting with clean shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCv9qLksG_-qkqLOM6b2Dcd0RUz3TvU586F9ejTMRZd8qY6fShkNfJ651IiEute3-WjVZ2l1O1rpi5r3m6JVNjdWobFBnrkq0n7epI1VwbD1C-al9pfiL7YXtJiX4ogS_PQPCiNvnTrm5Q8aW8m0I6TESxZAFVQfGsL9JXnUUjYD7Nrf6HEaQuA1LwvbfSlmGHEmdsNeUDsmIbG8UlOn1IgyHEZLGc6anfAtHC36poMsNA_usLCrRsUqB9S1Ej_qDgXOqn9g0l458Ld"/>
+<div class="absolute top-3 right-3">
+<span class="bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-sm">Stok: 4</span>
+</div>
+</div>
+<div class="flex-1 space-y-1">
+<p class="text-[10px] font-bold text-on-tertiary-fixed-variant tracking-widest uppercase">TEKNIK OTOMOTIF</p>
+<h3 class="text-lg font-bold text-on-surface leading-tight">Modern Hybrid Engines</h3>
+<p class="text-sm text-on-surface-variant font-medium">Robert Bosch Team</p>
+</div>
+<div class="mt-6">
+<button class="w-full bg-primary hover:bg-primary-container text-white font-bold py-3 rounded-xl transition-all active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="bookmark_add">bookmark_add</span>
+                            PINJAM
+                        </button>
+</div>
+</div>
+<!-- Book Card 4 -->
+<div class="group bg-surface-container-lowest rounded-xl p-4 transition-all duration-300 hover:shadow-[0_20px_40px_rgba(0,35,111,0.06)] flex flex-col h-full">
+<div class="relative aspect-[3/4] rounded-lg overflow-hidden mb-5 bg-surface-container-low">
+<img alt="Book Cover 4" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="minimalist design book cover with bold typography and a single splash of cobalt blue color" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfJO96Xp_C7cxOH-fqH-ZIC0TyVgfUPdhz7KU-thsBewRKlP2n_OJgNf7ohYL1ugN-_eWkJmS52VJI1srC_VEJdFWVdNBM3Q6K-a4uLEgfEVSJGUdFSzoLnEE-n0xT6fhy3OqU-ihzyGnONEvtkTopwzpkgiX4fBczDKsLk6ShsqZfLfc3RZOqOr8IjOirTI35yeYJwHIBhk6zkp4zirjNspWSjZ_85ZF0PFzcbtIb3oL15FKfTbfF_QJgN7oZTuQaiIqL_L5e8PzY"/>
+<div class="absolute top-3 right-3">
+<span class="bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-sm">Stok: 2</span>
+</div>
+</div>
+<div class="flex-1 space-y-1">
+<p class="text-[10px] font-bold text-on-tertiary-fixed-variant tracking-widest uppercase">MULTIMEDIA</p>
+<h3 class="text-lg font-bold text-on-surface leading-tight">The UI/UX Design Bible</h3>
+<p class="text-sm text-on-surface-variant font-medium">Steve Krug</p>
+</div>
+<div class="mt-6">
+<button class="w-full bg-primary hover:bg-primary-container text-white font-bold py-3 rounded-xl transition-all active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="bookmark_add">bookmark_add</span>
+                            PINJAM
+                        </button>
+</div>
+</div>
+<!-- More cards can be added here following same pattern -->
+<!-- Book Card 5 -->
+<div class="group bg-surface-container-lowest rounded-xl p-4 transition-all duration-300 hover:shadow-[0_20px_40px_rgba(0,35,111,0.06)] flex flex-col h-full">
+<div class="relative aspect-[3/4] rounded-lg overflow-hidden mb-5 bg-surface-container-low">
+<img alt="Book Cover 5" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="educational science book showing a stylized atom on the cover with deep navy and neon orange accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfurwID6V1vTuzpEWS9Anf8bM1lR8OgYAAZmMZRF4igOf_kV65_PoSxEtY9VcbFk2UnA2QJd2mAo2d1HbjYE5UbTfaVj5m4fgYk7Uj3YV73sWXp62n-OERSMTKieU_i0qXkKpjXvwiWQw67m-etfgHbeQkm24gP0s8VHdYuE1AvBzu5FUOWsuUyGvaP-IegD3q4anEtgIxNzRVaYQMMjn-jwHJH0IiRTm6dLrAoyi_ApucQFfKSw0z-65hA4fcbgmb3oHtytZ_6UEM"/>
+<div class="absolute top-3 right-3">
+<span class="bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-sm">Stok: 8</span>
+</div>
+</div>
+<div class="flex-1 space-y-1">
+<p class="text-[10px] font-bold text-on-tertiary-fixed-variant tracking-widest uppercase">SAINS &amp; MATEMATIKA</p>
+<h3 class="text-lg font-bold text-on-surface leading-tight">Quantum Physics for Teens</h3>
+<p class="text-sm text-on-surface-variant font-medium">Neil deGrasse Tyson</p>
+</div>
+<div class="mt-6">
+<button class="w-full bg-primary hover:bg-primary-container text-white font-bold py-3 rounded-xl transition-all active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="bookmark_add">bookmark_add</span>
+                            PINJAM
+                        </button>
+</div>
+</div>
+<!-- Book Card 6 -->
+<div class="group bg-surface-container-lowest rounded-xl p-4 transition-all duration-300 hover:shadow-[0_20px_40px_rgba(0,35,111,0.06)] flex flex-col h-full">
+<div class="relative aspect-[3/4] rounded-lg overflow-hidden mb-5 bg-surface-container-low">
+<img alt="Book Cover 6" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="professional programming textbook with a clean white cover and dark blue tech-inspired graphics" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBt8zceKjuapy-6zz6GbTfCcvkevvWQbaoGTKxg6m-z-epKAJl19USwk-YB476nQ_YSg3dA8fkzeYRmzUfDtUZEJwt9GOJ0pZanjd53hXwIowPUEae0BQGpApFryqSI4eWFPbomRjJQ1DYbgCvoPWbXL-iijYWb1Oj8z31c_pUq00UyqunHqRNB8kXWjU4ooTsaozlayKXJduS5qkA2Os4Ml9Gj2Nii3zDfm1Mub6mUYat0CROd2T1yyZ8uSLoiWPqw-VMJxFwCpSbV"/>
+<div class="absolute top-3 right-3">
+<span class="bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-sm">Stok: 15</span>
+</div>
+</div>
+<div class="flex-1 space-y-1">
+<p class="text-[10px] font-bold text-on-tertiary-fixed-variant tracking-widest uppercase">REKAYASA PERANGKAT LUNAK</p>
+<h3 class="text-lg font-bold text-on-surface leading-tight">Algorithms &amp; Data Structures</h3>
+<p class="text-sm text-on-surface-variant font-medium">Donald Knuth</p>
+</div>
+<div class="mt-6">
+<button class="w-full bg-primary hover:bg-primary-container text-white font-bold py-3 rounded-xl transition-all active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="bookmark_add">bookmark_add</span>
+                            PINJAM
+                        </button>
+</div>
+</div>
+</div>
+<!-- Simple Pagination - Editorial Style -->
+<div class="mt-20 flex justify-between items-center border-t border-outline-variant/10 pt-8">
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-[0.2em]">Halaman 01 dari 12</span>
+<div class="flex gap-2">
+<button class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-low text-outline-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-full bg-primary text-white hover:bg-primary-container transition-colors shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Signature Editorial Decoration -->
+<footer class="p-10 text-center opacity-30 pointer-events-none">
+<h4 class="text-9xl font-black text-outline-variant/10 select-none tracking-tighter">SMKN1PWT</h4>
+</footer>
+</main>
+</body></html>

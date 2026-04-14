@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+@layer base {
+    html {
+        font-family: Inter, ui-sans-serif, system-ui;
+    }
+}
+
+@layer utilities {
+    .editorial-gradient {
+        background: linear-gradient(135deg, #00236f 0%, #1e3a8a 100%);
+    }
+
+    .ghost-border {
+        border-bottom: 1px solid rgba(117, 118, 130, 0.2);
+    }
+
+    .ghost-border:focus-within {
+        border-bottom: 2px solid #00236f;
+    }
+
+    .glass-panel {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(20px);
+    }
+}
