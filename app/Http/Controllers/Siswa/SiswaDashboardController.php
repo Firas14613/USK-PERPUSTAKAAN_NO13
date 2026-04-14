@@ -21,9 +21,15 @@ class SiswaDashboardController extends Controller
             ->limit(5)
             ->get();
 
+        $totalDenda = (float) Peminjaman::query()
+            ->where('siswa_id', $siswaId)
+            ->whereNotNull('denda')
+            ->where('denda', '>', 0)
+            ->sum('denda');
+
         return view('siswa.dashboard', [
             'sedangDipinjam' => $sedangDipinjam,
+            'totalDenda' => $totalDenda,
         ]);
     }
 }
-

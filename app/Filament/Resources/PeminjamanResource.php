@@ -26,6 +26,16 @@ class PeminjamanResource extends Resource
 {
     protected static ?string $model = Peminjaman::class;
 
+    public static function getModelLabel(): string
+    {
+        return 'Peminjaman';
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return 'Peminjaman';
+    }
+
     protected static ?string $slug = 'peminjaman';
 
     protected static ?string $navigationIcon = 'heroicon-o-arrow-path';
@@ -42,6 +52,7 @@ class PeminjamanResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->defaultSort('created_at', 'desc')
             ->columns([
                 TextColumn::make('kode_peminjaman')
                     ->label('Kode')
@@ -151,6 +162,10 @@ class PeminjamanResource extends Resource
                             ->label('Tanggal Kembali Aktual')
                             ->default(now())
                             ->required()
+                            ->minDate($record->tanggal_pinjam ? Carbon::parse($record->tanggal_pinjam)->toDateString() : null)
+                            ->maxDate(now())
+                            ->rule($record->tanggal_pinjam ? ('after_or_equal:' . Carbon::parse($record->tanggal_pinjam)->toDateString()) : null)
+                            ->rule('before_or_equal:today')
                             ->reactive(),
                         Placeholder::make('keterlambatan')
                             ->label('Keterlambatan (hari)')
@@ -217,8 +232,6 @@ class PeminjamanResource extends Resource
 
                             if ($data['kondisi_buku'] === 'hilang') {
                                 $statusAkhir = 'hilang';
-                            } elseif ($keterlambatan > 0) {
-                                $statusAkhir = 'terlambat';
                             } else {
                                 $statusAkhir = 'dikembalikan';
                             }

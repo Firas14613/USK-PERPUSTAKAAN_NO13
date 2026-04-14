@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Detail Transaksi Peminjaman - The Atelier</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#d8dadc",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#d0e1fb",
+                        "secondary": "#505f76",
+                        "tertiary": "#4b1c00",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "outline": "#757682",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "tertiary-container": "#6e2c00",
+                        "primary-fixed-dim": "#b6c4ff",
+                        "primary": "#00236f",
+                        "on-primary-fixed": "#00164e",
+                        "inverse-primary": "#b6c4ff",
+                        "primary-fixed": "#dce1ff",
+                        "tertiary-fixed-dim": "#ffb691",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "on-secondary-fixed": "#0b1c30",
+                        "on-primary-fixed-variant": "#264191",
+                        "surface": "#f7f9fb",
+                        "secondary-fixed": "#d3e4fe",
+                        "surface-container-high": "#e6e8ea",
+                        "tertiary-fixed": "#ffdbcb",
+                        "surface-container": "#eceef0",
+                        "on-tertiary-container": "#f39461",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-bright": "#f7f9fb",
+                        "on-surface": "#191c1e",
+                        "primary-container": "#1e3a8a",
+                        "on-surface-variant": "#444651",
+                        "surface-tint": "#4059aa",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#341100",
+                        "outline-variant": "#c5c5d3",
+                        "on-primary-container": "#90a8ff",
+                        "on-background": "#191c1e",
+                        "on-tertiary-fixed-variant": "#773205",
+                        "inverse-surface": "#2d3133",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-secondary-container": "#54647a",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "background": "#f7f9fb",
+                        "surface-variant": "#e0e3e5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen">
+<!-- Background Layer (Screen 2 Context) -->
+<div class="fixed inset-0 overflow-hidden z-0">
+<nav class="flex justify-between items-center px-6 py-3 w-full fixed top-0 w-full z-50 bg-slate-50/80 backdrop-blur-xl shadow-sm">
+<span class="text-xl font-bold tracking-tighter text-blue-900">The Atelier</span>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-500">notifications</span>
+<span class="material-symbols-outlined text-slate-500">account_circle</span>
+</div>
+</nav>
+<main class="pt-20 px-8 max-w-7xl mx-auto">
+<header class="mb-12">
+<h1 class="text-4xl font-extrabold tracking-tight text-primary mb-2">Riwayat Peminjaman</h1>
+<p class="text-on-surface-variant body-md">Monitor status peminjaman buku dan riwayat literasi Anda.</p>
+</header>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 opacity-40 grayscale">
+<!-- Mock Background Content -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm">
+<div class="w-12 h-12 bg-primary-container rounded-lg mb-4"></div>
+<div class="h-4 bg-surface-container-high rounded w-3/4 mb-2"></div>
+<div class="h-3 bg-surface-container rounded w-1/2"></div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm">
+<div class="w-12 h-12 bg-secondary-container rounded-lg mb-4"></div>
+<div class="h-4 bg-surface-container-high rounded w-3/4 mb-2"></div>
+<div class="h-3 bg-surface-container rounded w-1/2"></div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm">
+<div class="w-12 h-12 bg-tertiary-container rounded-lg mb-4"></div>
+<div class="h-4 bg-surface-container-high rounded w-3/4 mb-2"></div>
+<div class="h-3 bg-surface-container rounded w-1/2"></div>
+</div>
+</div>
+</main>
+</div>
+<!-- Modal Overlay -->
+<div class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-primary/20 backdrop-blur-sm">
+<!-- Detail Modal Container -->
+<div class="bg-surface-container-lowest w-full max-w-2xl rounded-xl shadow-2xl overflow-hidden flex flex-col max-h-[921px]">
+<!-- Header Section -->
+<div class="px-8 py-6 bg-surface-container-low border-b border-outline-variant/10 flex justify-between items-start">
+<div>
+<h2 class="text-2xl font-bold text-primary tracking-tight">Detail Transaksi Peminjaman</h2>
+<p class="text-on-surface-variant font-mono text-sm mt-1 uppercase tracking-wider">PMJ-20231015</p>
+</div>
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto px-8 py-6 space-y-8">
+<!-- Book Summary Section -->
+<section class="flex gap-6 items-center bg-surface-container-low/50 p-4 rounded-xl">
+<div class="shrink-0 w-24 h-32 bg-surface-dim rounded-lg overflow-hidden shadow-md">
+<img alt="Book Cover" class="w-full h-full object-cover" data-alt="Close up of a textbook with PHP and Laravel branding on a clean desk with soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx-lnaUWlzQsEkw7CUVvloWyyqSFFdII2NmWH0k31j6DExfa7JSSyhlBPBvSbZ_OmNchhW9jBI4x4SJVL88hVwSjboPf3thdXyrdSxdD1KnnFheB3IEqaJd8LKzTpOy0g6_DgvnpM6PQsm9PB1c0AiqjOYVEUHDlc6rOJ4XkmPP5m-J7Q4H3otKVlX9REqvU7XjQV6PQ7bO-FgBKfhu7QVoGDtknAxFLTdD51XIfANGQKfo6f9J2et46sqJuzSqZN7gllB7gfY_wVC"/>
+</div>
+<div class="flex-1">
+<span class="inline-block px-2 py-0.5 rounded text-[10px] font-bold tracking-widest uppercase bg-primary-container text-on-primary-container mb-2">Engineering &amp; Tech</span>
+<h3 class="text-lg font-bold text-on-surface leading-tight mb-1">Modern Web Development with PHP &amp; Laravel</h3>
+<p class="text-on-surface-variant text-sm italic">Oleh John Doe &amp; Jane Smith</p>
+<div class="mt-3 flex items-center gap-2">
+<span class="bg-error-container text-on-error-container text-xs font-bold px-3 py-1 rounded-full uppercase tracking-tighter">TERLAMBAT</span>
+</div>
+</div>
+</section>
+<!-- Transaction Timeline -->
+<section>
+<h4 class="text-sm font-bold uppercase tracking-widest text-on-surface-variant mb-6">Timeline Transaksi</h4>
+<div class="relative space-y-8 before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-primary/20 before:via-primary before:to-primary/20">
+<!-- Request -->
+<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+<div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-primary-container text-on-primary-container shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+<span class="material-symbols-outlined text-sm">edit_document</span>
+</div>
+<div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl bg-surface-container-low">
+<div class="flex items-center justify-between space-x-2 mb-1">
+<div class="font-bold text-primary">Permintaan Pinjam</div>
+<time class="text-xs font-medium text-on-surface-variant uppercase">Oct 15, 2023</time>
+</div>
+<div class="text-sm text-on-surface-variant">Siswa mengajukan peminjaman melalui portal.</div>
+</div>
+</div>
+<!-- Approval -->
+<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+<div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-primary-container text-on-primary-container shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+<span class="material-symbols-outlined text-sm">verified</span>
+</div>
+<div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl bg-surface-container-low">
+<div class="flex items-center justify-between space-x-2 mb-1">
+<div class="font-bold text-primary">Disetujui Pustakawan</div>
+<time class="text-xs font-medium text-on-surface-variant uppercase">Oct 15, 2023</time>
+</div>
+<div class="text-sm text-on-surface-variant">Buku telah diserahkan kepada siswa.</div>
+</div>
+</div>
+<!-- Due Date -->
+<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+<div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-error-container text-on-error-container shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+<span class="material-symbols-outlined text-sm">event_busy</span>
+</div>
+<div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl bg-error-container/10 border border-error-container/20">
+<div class="flex items-center justify-between space-x-2 mb-1">
+<div class="font-bold text-error">Batas Pengembalian</div>
+<time class="text-xs font-medium text-error uppercase">Oct 22, 2023</time>
+</div>
+<div class="text-sm text-on-error-container">Masa peminjaman 7 hari berakhir.</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Fine Information -->
+<section class="bg-surface-container-highest/50 rounded-xl p-6 border-l-4 border-error">
+<div class="flex items-start gap-4">
+<div class="p-2 bg-error-container text-on-error-container rounded-lg">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<div class="flex-1">
+<h4 class="text-lg font-bold text-on-surface mb-1">Informasi Denda Keterlambatan</h4>
+<div class="grid grid-cols-2 gap-4 mt-4">
+<div class="bg-surface-container-lowest p-3 rounded-lg shadow-sm">
+<span class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold block mb-1">Durasi Terlambat</span>
+<span class="text-xl font-black text-error">3 Hari</span>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-lg shadow-sm">
+<span class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold block mb-1">Total Denda</span>
+<span class="text-xl font-black text-error">Rp 3.000</span>
+</div>
+</div>
+<p class="text-xs text-on-surface-variant mt-4 leading-relaxed">
+                                * Denda dihitung berdasarkan aturan perpustakaan (Rp 1.000 / hari). Silakan segera kembalikan buku ke meja sirkulasi untuk menghindari penambahan denda.
+                            </p>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer Actions -->
+<div class="px-8 py-6 bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-outline-variant/10">
+<a class="text-sm font-semibold text-primary hover:underline flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-base">help</span>
+                    Butuh Bantuan?
+                </a>
+<div class="flex gap-3 w-full sm:w-auto">
+<button class="flex-1 sm:flex-none px-8 py-2.5 bg-primary text-on-primary font-bold rounded-full hover:bg-primary-container transition-all text-sm uppercase tracking-widest">
+                        Tutup
+                    </button>
+</div>
+</div>
+</div>
+</div>
+</body></html>

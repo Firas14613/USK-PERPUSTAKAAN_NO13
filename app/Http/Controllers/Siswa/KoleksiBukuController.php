@@ -14,6 +14,7 @@ class KoleksiBukuController extends Controller
     public function index(Request $request): View
     {
         $kategoriId = $request->integer('kategori_id') ?: null;
+        $search = trim((string) $request->string('q'));
         $siswaId = $request->user()->siswa?->id;
 
         $kategori = KategoriBuku::query()
@@ -23,6 +24,13 @@ class KoleksiBukuController extends Controller
         $buku = Buku::query()
             ->with('kategori')
             ->when($kategoriId, fn ($q) => $q->where('kategori_id', $kategoriId))
+            ->when($search !== '', function ($query) use ($search) {
+                $query->where(function ($query) use ($search) {
+                    $query
+                        ->where('judul', 'like', '%' . $search . '%')
+                        ->orWhere('penulis', 'like', '%' . $search . '%');
+                });
+            })
             ->orderBy('judul')
             ->paginate(12)
             ->withQueryString();
@@ -44,8 +52,8 @@ class KoleksiBukuController extends Controller
             'kategori' => $kategori,
             'buku' => $buku,
             'kategoriId' => $kategoriId,
+            'search' => $search,
             'aktifByBukuId' => $aktifByBukuId,
         ]);
     }
 }
-

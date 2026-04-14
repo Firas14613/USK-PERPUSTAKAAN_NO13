@@ -63,7 +63,31 @@ class LoginRequest extends FormRequest
             ]);
         }
 
+        // Successful credentials: apply business rules without triggering lockout.
         RateLimiter::clear($this->throttleKey());
+
+        $user = Auth::user();
+
+        if ($user?->role === 'siswa') {
+            $siswa = $user->siswa;
+
+            if (! $siswa) {
+                Auth::logout();
+
+                throw ValidationException::withMessages([
+                    'login' => 'Akun siswa tidak valid. Hubungi admin.',
+                ]);
+            }
+
+            if ($siswa->status === 'keluar') {
+                Auth::logout();
+
+                throw ValidationException::withMessages([
+                    'login' => 'Akun sudah keluar, tidak dapat login. Hubungi admin.',
+                ]);
+            }
+        }
+
     }
 
     /**

@@ -17,6 +17,16 @@ class KategoriBukuResource extends Resource
 {
     protected static ?string $model = KategoriBuku::class;
 
+    public static function getModelLabel(): string
+    {
+        return 'Kategori Buku';
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return 'Kategori Buku';
+    }
+
     protected static ?string $slug = 'kategori-buku';
 
     protected static ?string $navigationIcon = 'heroicon-o-tag';

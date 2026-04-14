@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use DomainException;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -75,5 +76,24 @@ class User extends Authenticatable implements FilamentUser
     public function getNameAttribute(): string
     {
         return (string) ($this->attributes['nama_lengkap'] ?? $this->attributes['username'] ?? '');
+    }
+
+    protected static function booted(): void
+    {
+        static::deleting(function (self $user) {
+            if ($user->role !== 'siswa') {
+                return;
+            }
+
+            $siswa = $user->siswa()->first();
+            if (! $siswa) {
+                return;
+            }
+
+            $reason = $siswa->getDeletionBlockReason();
+            if ($reason !== null) {
+                throw new DomainException($reason);
+            }
+        });
     }
 }

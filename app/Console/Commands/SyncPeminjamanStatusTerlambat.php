@@ -9,13 +9,13 @@ class SyncPeminjamanStatusTerlambat extends Command
 {
     protected $signature = 'perpustakaan:sync-status-terlambat {--dry-run : Tampilkan jumlah perubahan tanpa update DB}';
 
-    protected $description = "Set status peminjaman menjadi 'terlambat' jika ada pengembalian dengan keterlambatan > 0 (untuk data lama yang masih 'dikembalikan').";
+    protected $description = "Normalisasi status peminjaman yang sudah dikembalikan agar berstatus 'dikembalikan' (termasuk yang pernah salah terset 'terlambat').";
 
     public function handle(): int
     {
         $query = Peminjaman::query()
-            ->where('status', 'dikembalikan')
-            ->whereHas('pengembalian', fn ($q) => $q->where('keterlambatan', '>', 0));
+            ->where('status', 'terlambat')
+            ->whereNotNull('tanggal_kembali');
 
         $count = (clone $query)->count();
 
@@ -25,17 +25,16 @@ class SyncPeminjamanStatusTerlambat extends Command
         }
 
         if ($this->option('dry-run')) {
-            $this->info("Dry run: {$count} peminjaman akan diubah statusnya menjadi 'terlambat'.");
+            $this->info("Dry run: {$count} peminjaman akan dinormalisasi statusnya menjadi 'dikembalikan'.");
             return self::SUCCESS;
         }
 
         $updated = $query->update([
-            'status' => 'terlambat',
+            'status' => 'dikembalikan',
         ]);
 
-        $this->info("Selesai: {$updated} peminjaman diubah statusnya menjadi 'terlambat'.");
+        $this->info("Selesai: {$updated} peminjaman dinormalisasi menjadi 'dikembalikan'.");
 
         return self::SUCCESS;
     }
 }
-

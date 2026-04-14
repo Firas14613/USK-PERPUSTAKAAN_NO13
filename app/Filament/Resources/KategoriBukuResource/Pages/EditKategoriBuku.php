@@ -4,9 +4,9 @@ namespace App\Filament\Resources\KategoriBukuResource\Pages;
 
 use App\Filament\Resources\KategoriBukuResource;
 use Filament\Actions;
-use Filament\Resources\Pages\EditRecord;
+use App\Filament\Resources\Pages\EditRecordRedirectToList;
 
-class EditKategoriBuku extends EditRecord
+class EditKategoriBuku extends EditRecordRedirectToList
 {
     protected static string $resource = KategoriBukuResource::class;
 

@@ -4,9 +4,9 @@ namespace App\Filament\Resources\PengembalianResource\Pages;
 
 use App\Filament\Resources\PengembalianResource;
 use Filament\Actions;
-use Filament\Resources\Pages\CreateRecord;
+use App\Filament\Resources\Pages\CreateRecordRedirectToList;
 
-class CreatePengembalian extends CreateRecord
+class CreatePengembalian extends CreateRecordRedirectToList
 {
     protected static string $resource = PengembalianResource::class;
 }

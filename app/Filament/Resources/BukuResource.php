@@ -24,6 +24,16 @@ class BukuResource extends Resource
 {
     protected static ?string $model = Buku::class;
 
+    public static function getModelLabel(): string
+    {
+        return 'Buku';
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return 'Buku';
+    }
+
     protected static ?string $slug = 'buku';
 
     protected static ?string $navigationIcon = 'heroicon-o-book-open';
@@ -69,7 +79,9 @@ class BukuResource extends Resource
                             ->maxValue((int) now()->format('Y') + 1),
                         TextInput::make('isbn')
                             ->label('ISBN')
-                            ->maxLength(20),
+                            ->maxLength(20)
+                            ->unique(ignoreRecord: true)
+                            ->dehydrateStateUsing(fn ($state) => blank($state) ? null : $state),
                         TextInput::make('jumlah_halaman')
                             ->label('Jumlah Halaman')
                             ->numeric()
@@ -88,6 +100,8 @@ class BukuResource extends Resource
                             ->disk('public')
                             ->directory('covers')
                             ->maxSize(2048)
+                            ->panelLayout('integrated')
+                            ->imagePreviewHeight(256)
                             ->columnSpanFull(),
                         Textarea::make('deskripsi')
                             ->label('Deskripsi')

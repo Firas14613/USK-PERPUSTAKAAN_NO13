@@ -11,11 +11,11 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\ViewField;
 use Filament\Forms\Form;
-use Filament\Resources\Pages\CreateRecord;
+use App\Filament\Resources\Pages\CreateRecordRedirectToList;
 use Filament\Support\Enums\Alignment;
 use Illuminate\Contracts\Support\Htmlable;
 
-class CreateBuku extends CreateRecord
+class CreateBuku extends CreateRecordRedirectToList
 {
     protected static string $resource = BukuResource::class;
 
@@ -43,8 +43,8 @@ class CreateBuku extends CreateRecord
                                 ->disk('public')
                                 ->directory('covers')
                                 ->maxSize(2048)
-                                ->imagePreviewHeight('16rem')
-                                ->panelLayout('compact')
+                                ->imagePreviewHeight(256)
+                                ->panelLayout('integrated')
                                 ->helperText('Format JPG, PNG atau WebP. Rasio disarankan 3:4.'),
                             ViewField::make('catalog_hint')
                                 ->view('filament.forms.buku.catalog-hint')
@@ -67,6 +67,8 @@ class CreateBuku extends CreateRecord
                             TextInput::make('isbn')
                                 ->label('ISBN')
                                 ->maxLength(20)
+                                ->unique(ignoreRecord: true)
+                                ->dehydrateStateUsing(fn ($state) => blank($state) ? null : $state)
                                 ->placeholder('978-602-...'),
 
                             TextInput::make('judul')

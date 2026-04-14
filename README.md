@@ -57,3 +57,22 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+---
+
+## Lupa Password (Local/Dev)
+
+Untuk development lokal tanpa SMTP, gunakan mailer `log` agar tautan reset password tercatat di log:
+
+1) Set `.env`:
+   - `MAIL_MAILER=log`
+2) Buka halaman:
+   - `GET /forgot-password`
+3) Submit email akun.
+4) Buka:
+   - `storage/logs/laravel.log`
+5) Cari tautan reset password, lalu buka link tersebut di browser.
+
+Catatan:
+- Halaman akan selalu menampilkan pesan generic (“Jika email terdaftar…”) untuk keamanan.
+- Akun siswa `status=keluar` tidak akan dikirimi tautan reset (karena login tetap diblok).

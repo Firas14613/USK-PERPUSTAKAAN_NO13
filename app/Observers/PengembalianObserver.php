@@ -22,17 +22,8 @@ class PengembalianObserver
             return;
         }
 
-        if (($pengembalian->keterlambatan ?? 0) > 0) {
-            if ($peminjaman->status !== 'terlambat') {
-                $peminjaman->update(['status' => 'terlambat']);
-            }
-
-            return;
-        }
-
         if ($peminjaman->status !== 'dikembalikan') {
             $peminjaman->update(['status' => 'dikembalikan']);
         }
     }
 }
-

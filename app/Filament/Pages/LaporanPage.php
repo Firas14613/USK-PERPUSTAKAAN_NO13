@@ -2,14 +2,18 @@
 
 namespace App\Filament\Pages;
 
+use Filament\Actions\Action;
 use App\Models\Peminjaman;
 use App\Models\Pengembalian;
 use Filament\Pages\Page;
+use Filament\Forms\Components\DatePicker;
+use Filament\Tables\Filters\Filter;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class LaporanPage extends Page implements HasTable
 {
@@ -32,6 +36,28 @@ class LaporanPage extends Page implements HasTable
     public ?string $dateTo = null;
 
     public ?string $filterStatus = null;
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            Action::make('exportPdf')
+                ->label('Ekspor PDF')
+                ->icon('heroicon-o-arrow-down-tray')
+                ->color('primary')
+                ->url(fn () => route('admin.laporan.exportPdf', $this->getExportQueryParams()))
+                ->openUrlInNewTab(),
+        ];
+    }
+
+    protected function getExportQueryParams(): array
+    {
+        return [
+            'tableSearch' => $this->tableSearch,
+            'tableFilters' => $this->tableFilters,
+            'tableSortColumn' => $this->tableSortColumn,
+            'tableSortDirection' => $this->tableSortDirection,
+        ];
+    }
 
     public function table(Table $table): Table
     {
@@ -89,6 +115,19 @@ class LaporanPage extends Page implements HasTable
                         'ditolak' => 'Ditolak',
                         'hilang' => 'Hilang',
                     ]),
+                Filter::make('rentang_tanggal')
+                    ->label('Rentang Tanggal')
+                    ->form([
+                        DatePicker::make('from')
+                            ->label('Dari'),
+                        DatePicker::make('to')
+                            ->label('Sampai'),
+                    ])
+                    ->query(function (Builder $query, array $data): Builder {
+                        return $query
+                            ->when($data['from'] ?? null, fn (Builder $query, $date) => $query->whereDate('tanggal_pinjam', '>=', $date))
+                            ->when($data['to'] ?? null, fn (Builder $query, $date) => $query->whereDate('tanggal_pinjam', '<=', $date));
+                    }),
             ])
             ->actions([]);
     }
@@ -97,8 +136,11 @@ class LaporanPage extends Page implements HasTable
     {
         $totalPinjaman = Peminjaman::query()->count();
         $totalTerlambat = Peminjaman::query()->where('status', 'terlambat')->count();
-        $totalDenda = Pengembalian::query()->sum('denda_dibayar') ?? 0;
-        $activeDenda = Pengembalian::query()->where('keterlambatan', '>', 0)->count();
+        $totalDenda = (float) (Peminjaman::query()->sum('denda') ?? 0);
+        $activeDenda = Peminjaman::query()
+            ->whereNotNull('denda')
+            ->where('denda', '>', 0)
+            ->count();
 
         $bukuTerpopuler = Peminjaman::query()
             ->selectRaw('buku_id, COUNT(*) as total')
@@ -124,10 +166,10 @@ class LaporanPage extends Page implements HasTable
 
     public function resetFilters(): void
     {
-        $this->searchName = null;
-        $this->dateFrom = null;
-        $this->dateTo = null;
-        $this->filterStatus = null;
+        $this->tableSearch = '';
+        $this->tableFilters = [];
+        $this->tableSortColumn = null;
+        $this->tableSortDirection = null;
         $this->resetTable();
     }
 }

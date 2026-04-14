@@ -34,6 +34,13 @@ class AuthenticatedSessionController extends Controller
             return redirect()->intended('/admin');
         }
 
+        if ($user?->role === 'siswa' && ($user->siswa?->status ?? 'aktif') === 'lulus') {
+            $request->session()->flash('toast', [
+                'type' => 'danger',
+                'message' => 'Status kamu LULUS, akun hanya bisa melihat data (read-only).',
+            ]);
+        }
+
         return redirect()->intended('/dashboard');
     }
 

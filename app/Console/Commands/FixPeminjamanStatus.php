@@ -9,7 +9,7 @@ class FixPeminjamanStatus extends Command
 {
     protected $signature = 'peminjaman:fix-status';
 
-    protected $description = 'Fix status peminjaman yang terlambat tapi statusnya masih dikembalikan';
+    protected $description = "Normalisasi status peminjaman yang sudah dikembalikan (termasuk terlambat) agar berstatus 'dikembalikan'.";
 
     public function handle(): int
     {
@@ -21,10 +21,19 @@ class FixPeminjamanStatus extends Command
         $fixed = 0;
 
         foreach ($pengembalians as $p) {
-            if ($p->peminjaman && $p->peminjaman->status === 'dikembalikan') {
-                $p->peminjaman->update(['status' => 'terlambat']);
+            if (! $p->peminjaman) {
+                continue;
+            }
+
+            $targetStatus = $p->kondisi_buku === 'hilang' ? 'hilang' : 'dikembalikan';
+
+            if ($p->peminjaman->status !== $targetStatus) {
+                $p->peminjaman->update([
+                    'status' => $targetStatus,
+                ]);
+
                 $fixed++;
-                $this->info("Fixed: {$p->peminjaman->kode_peminjaman} ({$p->keterlambatan} hari terlambat)");
+                $this->info("Fixed: {$p->peminjaman->kode_peminjaman} -> {$targetStatus} (keterlambatan {$p->keterlambatan} hari)");
             }
         }
 

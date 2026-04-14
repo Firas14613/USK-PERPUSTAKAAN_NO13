@@ -14,7 +14,7 @@ class UpdateTerlambatStatus extends Command
 
     public function handle()
     {
-        $today = Carbon::today();
+        $today = Carbon::today('Asia/Jakarta');
 
         $updated = Peminjaman::query()
             ->where('status', 'dipinjam')

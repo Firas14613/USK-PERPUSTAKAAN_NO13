@@ -4,9 +4,9 @@ namespace App\Filament\Resources\PengembalianResource\Pages;
 
 use App\Filament\Resources\PengembalianResource;
 use Filament\Actions;
-use Filament\Resources\Pages\EditRecord;
+use App\Filament\Resources\Pages\EditRecordRedirectToList;
 
-class EditPengembalian extends EditRecord
+class EditPengembalian extends EditRecordRedirectToList
 {
     protected static string $resource = PengembalianResource::class;
 

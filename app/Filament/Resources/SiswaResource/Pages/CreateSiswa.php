@@ -9,9 +9,9 @@ use Filament\Actions;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Filament\Resources\Pages\CreateRecord;
+use App\Filament\Resources\Pages\CreateRecordRedirectToList;
 
-class CreateSiswa extends CreateRecord
+class CreateSiswa extends CreateRecordRedirectToList
 {
     protected static string $resource = SiswaResource::class;
 

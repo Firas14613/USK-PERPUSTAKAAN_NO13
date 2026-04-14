@@ -3,14 +3,16 @@
 namespace App\Filament\Resources\SiswaResource\Pages;
 
 use App\Filament\Resources\SiswaResource;
+use App\Models\Peminjaman;
 use App\Models\Siswa;
 use Filament\Actions;
+use Filament\Notifications\Notification;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Filament\Resources\Pages\EditRecord;
+use App\Filament\Resources\Pages\EditRecordRedirectToList;
 
-class EditSiswa extends EditRecord
+class EditSiswa extends EditRecordRedirectToList
 {
     protected static string $resource = SiswaResource::class;
 
@@ -67,10 +69,92 @@ class EditSiswa extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
-            Actions\DeleteAction::make()
+            Actions\Action::make('nonaktifkan')
+                ->label('Nonaktifkan')
+                ->icon('heroicon-o-lock-closed')
+                ->color('warning')
+                ->requiresConfirmation()
+                ->modalHeading('Nonaktifkan Akun')
+                ->modalDescription('Akun siswa akan dinonaktifkan dan tidak dapat login lagi.')
+                ->visible(fn () => ($this->record?->status ?? null) !== 'keluar')
+                ->disabled(fn () => (bool) ($this->record?->hasPeminjamanBerjalan() ?? false))
+                ->tooltip(fn () => ($this->record?->hasPeminjamanBerjalan() ?? false) ? 'Tidak bisa dinonaktifkan: masih ada peminjaman dipinjam/terlambat. Selesaikan pengembalian dulu.' : null)
                 ->action(function () {
                     /** @var Siswa $record */
                     $record = $this->record;
+
+                    if ($record->hasPeminjamanBerjalan()) {
+                        Notification::make()
+                            ->danger()
+                            ->title('Tidak bisa dinonaktifkan')
+                            ->body('Masih ada peminjaman berstatus dipinjam/terlambat. Selesaikan pengembalian dulu.')
+                            ->send();
+
+                        return;
+                    }
+
+                    $pendingCount = $record->countPendingPeminjaman();
+
+                    DB::transaction(function () use ($record) {
+                        Peminjaman::query()
+                            ->where('siswa_id', $record->id)
+                            ->where('status', 'pending')
+                            ->update([
+                                'admin_id' => auth()->id(),
+                                'status' => 'ditolak',
+                                'catatan' => DB::raw("CASE WHEN catatan IS NULL OR catatan = '' THEN 'Akun dinonaktifkan' ELSE CONCAT(catatan, '\nAkun dinonaktifkan') END"),
+                            ]);
+
+                        $record->update(['status' => 'keluar']);
+                    });
+
+                    Notification::make()
+                        ->success()
+                        ->title('Akun dinonaktifkan')
+                        ->body($pendingCount > 0
+                            ? "Siswa tidak dapat login. {$pendingCount} request pending otomatis ditolak."
+                            : 'Siswa tidak dapat login.')
+                        ->send();
+                }),
+
+            Actions\Action::make('aktifkan')
+                ->label('Aktifkan')
+                ->icon('heroicon-o-lock-open')
+                ->color('success')
+                ->requiresConfirmation()
+                ->modalHeading('Aktifkan Akun')
+                ->modalDescription('Akun siswa akan diaktifkan kembali dan bisa login.')
+                ->visible(fn () => ($this->record?->status ?? null) === 'keluar')
+                ->action(function () {
+                    /** @var Siswa $record */
+                    $record = $this->record;
+
+                    $record->update(['status' => 'aktif']);
+
+                    Notification::make()
+                        ->success()
+                        ->title('Akun diaktifkan')
+                        ->body('Siswa dapat login kembali.')
+                        ->send();
+                }),
+
+            Actions\DeleteAction::make()
+                ->disabled(fn () => (bool) $this->record?->getDeletionBlockReason())
+                ->tooltip(fn () => $this->record?->getDeletionBlockReason())
+                ->action(function () {
+                    /** @var Siswa $record */
+                    $record = $this->record;
+
+                    $reason = $record->getDeletionBlockReason();
+                    if ($reason !== null) {
+                        Notification::make()
+                            ->danger()
+                            ->title('Tidak bisa menghapus akun')
+                            ->body($reason)
+                            ->send();
+
+                        return;
+                    }
 
                     DB::transaction(function () use ($record) {
                         $user = $record->user;
